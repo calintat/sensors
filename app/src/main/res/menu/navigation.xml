@@ -1,0 +1,79 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <group
+        android:id="@+id/sensors" >
+
+        <item
+            android:id="@+id/navigation_accelerometer"
+            android:icon="@drawable/ic_navigation_accelerometer"
+            android:title="@string/navigation_accelerometer" />
+
+        <item
+            android:id="@+id/navigation_ambient_temperature"
+            android:icon="@drawable/ic_navigation_ambient_temperature"
+            android:title="@string/navigation_ambient_temperature" />
+
+        <item
+            android:id="@+id/navigation_gravity"
+            android:icon="@drawable/ic_navigation_gravity"
+            android:title="@string/navigation_gravity" />
+
+        <item
+            android:id="@+id/navigation_gyroscope"
+            android:icon="@drawable/ic_navigation_gyroscope"
+            android:title="@string/navigation_gyroscope" />
+
+        <item
+            android:id="@+id/navigation_light"
+            android:icon="@drawable/ic_navigation_light"
+            android:title="@string/navigation_light" />
+
+        <item
+            android:id="@+id/navigation_linear_acceleration"
+            android:icon="@drawable/ic_navigation_linear_acceleration"
+            android:title="@string/navigation_linear_acceleration" />
+
+        <item
+            android:id="@+id/navigation_magnetic_field"
+            android:icon="@drawable/ic_navigation_magnetic_field"
+            android:title="@string/navigation_magnetic_field" />
+
+        <item
+            android:id="@+id/navigation_pressure"
+            android:icon="@drawable/ic_navigation_pressure"
+            android:title="@string/navigation_pressure" />
+
+        <item
+            android:id="@+id/navigation_proximity"
+            android:icon="@drawable/ic_navigation_proximity"
+            android:title="@string/navigation_proximity" />
+
+        <item
+            android:id="@+id/navigation_relative_humidity"
+            android:icon="@drawable/ic_navigation_relative_humidity"
+            android:title="@string/navigation_relative_humidity" />
+
+        <item
+            android:id="@+id/navigation_rotation_vector"
+            android:icon="@drawable/ic_navigation_rotation_vector"
+            android:title="@string/navigation_rotation_vector" />
+
+    </group>
+
+    <group
+        android:id="@+id/others" >
+
+        <item
+            android:id="@+id/navigation_settings"
+            android:icon="@drawable/ic_navigation_settings"
+            android:title="@string/navigation_settings" />
+
+        <item
+            android:id="@+id/navigation_feedback"
+            android:icon="@drawable/ic_navigation_feedback"
+            android:title="@string/navigation_feedback" />
+
+    </group>
+
+</menu>

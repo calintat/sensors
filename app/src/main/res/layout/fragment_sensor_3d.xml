@@ -1,0 +1,101 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false" >
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/x_axis"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption" />
+
+        <TextView
+            android:id="@+id/sensor_value1"
+            android:maxLines="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+            tools:text="28.071997" />
+
+        <TextView
+            android:id="@+id/sensor_unit1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+            tools:text="m/s²" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/y_axis"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption" />
+
+        <TextView
+            android:id="@+id/sensor_value2"
+            android:maxLines="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+            tools:text="28.071997" />
+
+        <TextView
+            android:id="@+id/sensor_unit2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+            tools:text="m/s²" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/z_axis"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption" />
+
+        <TextView
+            android:id="@+id/sensor_value3"
+            android:maxLines="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+            tools:text="28.071997" />
+
+        <TextView
+            android:id="@+id/sensor_unit3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+            tools:text="m/s²" />
+
+    </LinearLayout>
+
+</LinearLayout>
