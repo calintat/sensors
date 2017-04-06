@@ -3,8 +3,10 @@ package com.calintat.sensors.activities
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.calintat.sensors.R
-import com.github.calintat.Alps.populateWithPreferences
-import kotlinx.android.synthetic.main.activity_settings.*
+import com.calintat.sensors.ui.SettingsUI
+import com.calintat.sensors.ui.SettingsUI.toolbar
+import com.github.calintat.populateWithPreferences
+import org.jetbrains.anko.setContentView
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -12,7 +14,7 @@ class SettingsActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_settings)
+        SettingsUI.setContentView(this)
 
         toolbar.setTitle(R.string.navigation_settings)
 
