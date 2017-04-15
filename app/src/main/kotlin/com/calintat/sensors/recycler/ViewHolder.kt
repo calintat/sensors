@@ -1,13 +1,14 @@
 package com.calintat.sensors.recycler
 
-import android.view.View
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import android.widget.TextView
 import com.calintat.sensors.R
+import org.jetbrains.anko.find
 
 class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    val time = itemView.findViewById(R.id.logger_list_item_time) as TextView
+    val time = itemView.find<TextView>(R.id.logger_list_item_time)
 
-    val measurement = itemView.findViewById(R.id.logger_list_item_measurement) as TextView
+    val data = itemView.find<TextView>(R.id.logger_list_item_data)
 }
