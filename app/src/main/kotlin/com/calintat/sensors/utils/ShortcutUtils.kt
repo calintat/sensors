@@ -54,7 +54,7 @@ object ShortcutUtils {
      */
     internal fun buildShortcut(context: Context, id: Int) = retrieveShortcutId(id)?.let {
 
-        val item = SensorUtils.getItem(id)
+        val item = SensorUtils.get(id)
 
         ShortcutInfo.Builder(context, it)
 
