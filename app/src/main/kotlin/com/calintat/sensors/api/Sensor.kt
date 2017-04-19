@@ -42,6 +42,7 @@ enum class Sensor(val type: Int, @StringRes val unit: Int, val dimension: Int) {
     ),
 
     LIGHT(
+
             type = android.hardware.Sensor.TYPE_LIGHT,
 
             unit = R.string.lux,
