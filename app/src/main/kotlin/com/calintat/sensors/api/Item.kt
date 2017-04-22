@@ -136,7 +136,7 @@ enum class Item(val sensor: Sensor, val id: Int, val label: Int, val shortcutIco
 
         fun getItem(id: Int) = items[id] ?: throw Exception("Unknown identifier")
 
-        val Context.defaultItem get() = values().firstOrNull { it.isAvailable(this) }
+        fun getFirstAvailableItem(ctx: Context) = values().firstOrNull { it.isAvailable(ctx) }
     }
 
     /**
