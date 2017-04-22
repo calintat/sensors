@@ -2,6 +2,7 @@ package com.calintat.sensors.api
 
 import android.content.Context
 import android.hardware.SensorEventListener
+import android.support.annotation.IdRes
 import com.calintat.sensors.R
 import org.jetbrains.anko.sensorManager
 
@@ -132,9 +133,9 @@ enum class Item(val sensor: Sensor, val id: Int, val label: Int, val shortcutIco
 
         private val items by lazy { values().map { it.id to it }.toMap() }
 
-        fun getItemOrNull(id: Int) = items[id]
+        fun getItemOrNull(@IdRes id: Int) = items[id]
 
-        fun getItem(id: Int) = items[id] ?: throw Exception("Unknown identifier")
+        fun getItem(@IdRes id: Int) = items[id] ?: throw Exception("Unknown identifier")
 
         fun getFirstAvailableItem(ctx: Context) = values().firstOrNull { it.isAvailable(ctx) }
     }
