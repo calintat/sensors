@@ -145,6 +145,11 @@ enum class Item(val sensor: Sensor, val id: Int, val label: Int, val shortcutIco
     val rank get() = ordinal
 
     /**
+     * The string resource id for the measurement unit of this item's sensor.
+     */
+    val unit get() = sensor.unit
+
+    /**
      * The dimension of this item's sensor (should be either 1 or 3).
      */
     val dimension get() = sensor.dimension
