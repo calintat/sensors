@@ -145,6 +145,11 @@ enum class Item(val sensor: Sensor, val id: Int, val label: Int, val shortcutIco
     val rank get() = ordinal
 
     /**
+     * The dimension of this item's sensor (should be either 1 or 3).
+     */
+    val dimension get() = sensor.dimension
+
+    /**
      * Use this method to get the default sensor for this item in a given context.
      *
      * @return The default sensor matching the requested type or null if none exists.
