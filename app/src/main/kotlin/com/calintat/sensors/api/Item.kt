@@ -131,11 +131,13 @@ enum class Item(val sensor: Sensor, val id: Int, val label: Int, val shortcutIco
 
     companion object Utils {
 
+        class UnknownIdentifier(@IdRes val id: Int) : Exception("Unknown identifier")
+
         private val items by lazy { values().map { it.id to it }.toMap() }
 
         fun getItemOrNull(@IdRes id: Int) = items[id]
 
-        fun getItem(@IdRes id: Int) = items[id] ?: throw Exception("Unknown identifier")
+        fun getItem(@IdRes id: Int) = items[id] ?: throw UnknownIdentifier(id)
 
         fun getFirstAvailableItem(ctx: Context) = values().firstOrNull { it.isAvailable(ctx) }
     }
