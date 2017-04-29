@@ -4,6 +4,9 @@ data class Snapshot(val time: Float, val data: List<Float>) {
 
     companion object {
 
-        infix fun Float.snap(data: List<Float>) = Snapshot(this, data)
+        infix fun Long.snap(data: List<Float>): Snapshot {
+
+            return Snapshot((System.currentTimeMillis() - this) / 1000f, data)
+        }
     }
 }
