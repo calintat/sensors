@@ -173,6 +173,14 @@ enum class Item(val sensor: Sensor, val id: Int, val label: Int, val shortcutIco
     fun isAvailable(context: Context) = getDefaultSensor(context) != null
 
     /**
+     * Unregister a listener for the default sensor of this item.
+     */
+    fun unregisterListener(context: Context, listener: SensorEventListener) {
+
+        context.sensorManager.unregisterListener(listener, getDefaultSensor(context))
+    }
+
+    /**
      * Register a listener for the default sensor at a given sampling period.
      *
      * @param frequency The rate in microseconds that sensor events will be delivered at.
