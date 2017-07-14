@@ -3,25 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto" >
 
     <item
-        android:id="@+id/action_graph"
-        android:icon="@drawable/ic_action_graph"
-        android:title="@string/action_graph"
-        app:showAsAction="ifRoom" />
-
-    <item
         android:id="@+id/action_clear"
         android:icon="@drawable/ic_action_clear"
         android:title="@string/action_clear"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/action_save"
-        android:title="@string/action_save"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_info"
-        android:title="@string/action_info"
-        app:showAsAction="never" />
+        android:id="@+id/action_about"
+        android:icon="@drawable/ic_action_about"
+        android:title="@string/action_about"
+        app:showAsAction="ifRoom" />
 
 </menu>
