@@ -1,0 +1,74 @@
+<shortcuts
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="25" >
+
+    <shortcut
+        android:shortcutId="shortcut_accelerometer"
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_accelerometer"
+        android:shortcutShortLabel="@string/navigation_accelerometer" >
+
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.calintat.sensors"
+            android:targetClass=".activities.MainActivity" >
+
+            <extra android:name="shortcut_id" android:value="shortcut_accelerometer" />
+
+        </intent>
+
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="shortcut_ambient_temperature"
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_ambient_temperature"
+        android:shortcutShortLabel="@string/navigation_ambient_temperature" >
+
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.calintat.sensors"
+            android:targetClass=".activities.MainActivity" >
+
+            <extra android:name="shortcut_id" android:value="shortcut_ambient_temperatures" />
+
+        </intent>
+
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="shortcut_gravity"
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_gravity"
+        android:shortcutShortLabel="@string/navigation_gravity" >
+
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.calintat.sensors"
+            android:targetClass=".activities.MainActivity" >
+
+            <extra android:name="shortcut_id" android:value="shortcut_gravity" />
+
+        </intent>
+
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="shortcut_gyroscope"
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_gyroscope"
+        android:shortcutShortLabel="@string/navigation_gyroscope" >
+
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.calintat.sensors"
+            android:targetClass=".activities.MainActivity" >
+
+            <extra android:name="shortcut_id" android:value="shortcut_gyroscope" />
+
+        </intent>
+
+    </shortcut>
+
+</shortcuts>
