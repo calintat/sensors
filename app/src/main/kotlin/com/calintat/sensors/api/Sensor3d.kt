@@ -11,15 +11,15 @@ import com.calintat.sensors.utils.AnkoUtils.textAppearance
 import org.jetbrains.anko.*
 
 /**
- * Implementation of the [Meter] class for 3-dimensional sensors.
+ * Implementation of the [Sensor] class for 3-dimensional sensors.
  */
-class Meter3D : Meter() {
+class Sensor3d : Sensor() {
 
-    var fieldX: TextView? = null
+    internal var fieldX: TextView? = null
 
-    var fieldY: TextView? = null
+    internal var fieldY: TextView? = null
 
-    var fieldZ: TextView? = null
+    internal var fieldZ: TextView? = null
 
     override fun onValuesChanged(newValues: FloatArray) {
 
@@ -44,15 +44,15 @@ class Meter3D : Meter() {
 
             padding = dip(16)
 
-            createTextField(R.string.x_axis) { fieldX = this }
+            createField(R.string.x_axis) { fieldX = this }
 
-            createTextField(R.string.y_axis) { fieldY = this }
+            createField(R.string.y_axis) { fieldY = this }
 
-            createTextField(R.string.z_axis) { fieldZ = this }
+            createField(R.string.z_axis) { fieldZ = this }
         }
     }
 
-    fun ViewManager.createTextField(@StringRes textResId: Int, init: TextView.() -> Unit) {
+    internal fun ViewManager.createField(@StringRes textResId: Int, init: TextView.() -> Unit) {
 
         verticalLayout {
 
@@ -63,7 +63,8 @@ class Meter3D : Meter() {
             textView(text = textResId) {
 
                 textAppearance = R.style.TextAppearance_AppCompat_Caption
-            }
+
+            }.lparams(width = wrapContent, height = wrapContent)
 
             textView {
 
@@ -72,12 +73,14 @@ class Meter3D : Meter() {
                 maxLines = 1
 
                 textAppearance = R.style.TextAppearance_AppCompat_Title
-            }
+
+            }.lparams(width = wrapContent, height = wrapContent)
 
             textView(text = item.unit) {
 
                 textAppearance = R.style.TextAppearance_AppCompat_Body2
-            }
+
+            }.lparams(width = wrapContent, height = wrapContent)
         }
     }
 }
