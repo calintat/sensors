@@ -6,53 +6,39 @@
 
     <string translatable="false" name="app_developer">Calin Tataru</string>
 
-    <string name="x_axis">x-axis</string>
+    <!--ABOUT-->
 
-    <string name="y_axis">y-axis</string>
+    <string name="about_name">Name</string>
 
-    <string name="z_axis">z-axis</string>
+    <string name="about_vendor">Vendor</string>
 
-    <string name="time">Time</string>
+    <string name="about_version">Version</string>
 
-    <string name="measurement">Measurement</string>
+    <string name="about_power">Power</string>
 
-    <string name="info_name">Name</string>
+    <string name="about_resolution">Resolution</string>
 
-    <string name="info_vendor">Vendor</string>
-
-    <string name="info_version">Version</string>
-
-    <string name="info_power">Power</string>
-
-    <string name="info_resolution">Resolution</string>
-
-    <string name="info_maximum_range">Maximum range</string>
-
-    <string name="pref_dark_theme">Dark theme</string>
-
-    <string name="pref_about">About</string>
-
-    <string name="pref_version">Version</string>
+    <string name="about_maximum_range">Maximum range</string>
 
     <string name="pref_developer">Developer</string>
 
-    <string name="action_close">Close</string>
-
-    <string name="action_graph">Graph</string>
+    <!--ACTIONS-->
 
     <string name="action_clear">Clear</string>
 
-    <string name="action_save">Save</string>
+    <string name="action_about">About sensor</string>
 
-    <string name="action_info">Info</string>
+    <!--ERRORS-->
 
-    <string name="navigation_settings">Settings</string>
+    <string name="err_shortcuts">Maximum 4 shortcuts</string>
 
-    <string name="navigation_feedback">Send feedback</string>
+    <string name="err_no_sensors_available">No sensors available</string>
 
-    <string name="navigation_donation">Support development</string>
+    <!--MESSAGES-->
 
-    <!--SENSORS-->
+    <string name="msg_app_restart_required">App restart required</string>
+
+    <!--NAVIGATION-->
 
     <string name="navigation_accelerometer">Accelerometer</string>
 
@@ -75,6 +61,32 @@
     <string name="navigation_relative_humidity">Relative humidity</string>
 
     <string name="navigation_rotation_vector">Rotation vector</string>
+
+    <string name="navigation_settings">Settings</string>
+
+    <string name="navigation_feedback">Send feedback</string>
+
+    <!--OTHERS-->
+
+    <string name="time">Time</string>
+
+    <string name="data">Data</string>
+
+    <string name="x_axis">x-axis</string>
+
+    <string name="y_axis">y-axis</string>
+
+    <string name="z_axis">z-axis</string>
+
+    <!--PREFERENCES-->
+
+    <string name="pref_theme">Theme</string>
+
+    <string name="pref_shortcuts">Shortcuts</string>
+
+    <string name="pref_about">About</string>
+
+    <string name="pref_version">Version</string>
 
     <!--MEASUREMENT UNITS-->
 
