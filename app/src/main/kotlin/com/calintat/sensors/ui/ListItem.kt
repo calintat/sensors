@@ -1,12 +1,12 @@
 package com.calintat.sensors.ui
 
+import android.support.annotation.IdRes
 import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.TextView
 import com.calintat.sensors.R
-import com.github.calintat.Colorful
 import org.jetbrains.anko.*
-import java.util.*
 
 object ListItem : AnkoComponent<ViewGroup> {
 
@@ -20,21 +20,18 @@ object ListItem : AnkoComponent<ViewGroup> {
 
             verticalPadding = dip(8)
 
-            textView {
+            createTextView(R.id.logger_list_item_time)
 
-                id = R.id.logger_list_item_time
-
-                gravity = Gravity.CENTER
-
-            }.lparams(width = 0, height = matchParent, weight = 1f)
-
-            textView {
-
-                id = R.id.logger_list_item_data
-
-                gravity = Gravity.CENTER
-
-            }.lparams(width = 0, height = matchParent, weight = 1f)
+            createTextView(R.id.logger_list_item_data)
         }
+    }
+
+    internal fun _LinearLayout.createTextView(@IdRes id: Int): TextView {
+
+        return textView {
+
+            this.id = id; gravity = Gravity.CENTER
+
+        }.lparams(width = 0, height = matchParent, weight = 1f)
     }
 }
