@@ -1,0 +1,47 @@
+<resources>
+
+    <style name="app_theme" parent="Theme.AppCompat.DayNight.DarkActionBar" >
+
+        <item name="colorAccent">@color/accent</item>
+
+        <item name="colorPrimary">@color/primary</item>
+
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+
+        <item name="windowActionBar">false</item>
+
+        <item name="windowNoTitle">true</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
+    </style>
+
+    <color name="primary">@color/red_500</color>
+
+    <color name="primary_dark">@color/red_700</color>
+
+    <color name="accent">@color/blue_A200</color>
+
+    <dimen name="app_bar_height">168dp</dimen>
+
+    <dimen name="card_view_margin_top">64dp</dimen>
+
+    <dimen name="card_view_margin_start">16dp</dimen>
+
+    <dimen name="card_view_margin_end">16dp</dimen>
+
+    <dimen name="card_view_margin_bottom">16dp</dimen>
+
+    <item type="id" name="container" />
+
+    <item type="id" name="fragment_sensor" />
+
+    <item type="id" name="fragment_logger" />
+
+    <item type="id" name="logger_list_item_time" />
+
+    <item type="id" name="logger_list_item_data" />
+
+</resources>
