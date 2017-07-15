@@ -5,17 +5,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.calintat.sensors.R
 import com.calintat.sensors.utils.AnkoUtils.textAppearance
-import org.jetbrains.anko.AnkoContext
-import org.jetbrains.anko.matchParent
-import org.jetbrains.anko.textView
-import org.jetbrains.anko.verticalLayout
+import org.jetbrains.anko.*
 
 /**
- * Implementation of the [Meter] class for 1-dimensional sensors.
+ * Implementation of the [Sensor] class for 1-dimensional sensors.
  */
-class Meter1D : Meter() {
+class Sensor1d : Sensor() {
 
-    var field: TextView? = null
+    internal var field: TextView? = null
 
     override fun onValuesChanged(newValues: FloatArray) {
 
@@ -30,19 +27,19 @@ class Meter1D : Meter() {
 
             gravity = Gravity.CENTER
 
-            textView {
-
-                field = this
+            field = textView {
 
                 maxLines = 1
 
                 textAppearance = R.style.TextAppearance_AppCompat_Display2
-            }
+
+            }.lparams(width = wrapContent, height = wrapContent)
 
             textView(text = item.unit) {
 
                 textAppearance = R.style.TextAppearance_AppCompat_Body2
-            }
+
+            }.lparams(width = wrapContent, height = wrapContent)
         }
     }
 }
