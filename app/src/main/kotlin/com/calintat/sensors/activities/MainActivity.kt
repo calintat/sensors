@@ -8,6 +8,7 @@ import android.support.customtabs.CustomTabsIntent
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.app.AppCompatDelegate
+import android.view.MenuItem
 import com.calintat.sensors.R
 import com.calintat.sensors.api.Item
 import com.calintat.sensors.api.Logger
@@ -124,9 +125,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    internal fun onMenuItemClick(itemId: Int) {
+    internal fun onMenuItemClick(item: MenuItem) {
 
-        when (itemId) {
+        when (item.itemId) {
 
             R.id.action_clear -> actionClear()
 
@@ -134,17 +135,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    internal fun onNavigationItemSelected(itemId: Int) {
+    internal fun navigationItemSelected(item: MenuItem) {
 
         ui.drawerLayout.closeDrawers()
 
-        when (itemId) {
+        when (item.itemId) {
 
             R.id.navigation_settings -> startActivity<SettingsActivity>()
 
             R.id.navigation_feedback -> reportIssue()
 
-            else -> id = itemId
+            else -> id = item.itemId
         }
     }
 

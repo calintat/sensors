@@ -45,7 +45,7 @@ class MainUI : AnkoComponent<MainActivity> {
 
                     overflowIconResource = R.drawable.ic_action_overflow
 
-                    setOnMenuItemClickListener { owner.onMenuItemClick(it) }
+                    setOnMenuItemClickListener { owner.onMenuItemClick(it); true }
 
                     navigationIconResource = R.drawable.ic_action_menu
 
@@ -105,7 +105,7 @@ class MainUI : AnkoComponent<MainActivity> {
                     it.isVisible = Item.get(it.itemId)?.isAvailable(ctx) ?: true
                 }
 
-                setNavigationItemSelectedListener { owner.navigationItemSelected(it) }
+                setNavigationItemSelectedListener { owner.navigationItemSelected(it); true }
 
                 layoutParams = DrawerLayout.LayoutParams(wrapContent, matchParent, Gravity.START)
             }
