@@ -31,7 +31,7 @@
             android:targetPackage="com.calintat.sensors"
             android:targetClass=".activities.MainActivity" >
 
-            <extra android:name="shortcut_id" android:value="shortcut_ambient_temperatures" />
+            <extra android:name="shortcut_id" android:value="shortcut_ambient_temperature" />
 
         </intent>
 
