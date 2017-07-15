@@ -19,7 +19,7 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
             id = R.id.navigation_accelerometer,
             label = R.string.navigation_accelerometer,
             shortcutId = "shortcut_accelerometer",
-			shortcutIcon = R.drawable.ic_shortcut_accelerometer
+            shortcutIcon = R.drawable.ic_shortcut_accelerometer
     ),
 
     AMBIENT_TEMPERATURE(
@@ -29,7 +29,7 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
             id = R.id.navigation_ambient_temperature,
             label = R.string.navigation_ambient_temperature,
             shortcutId = "shortcut_ambient_temperature",
-			shortcutIcon = R.drawable.ic_shortcut_ambient_temperature
+            shortcutIcon = R.drawable.ic_shortcut_ambient_temperature
     ),
 
     GRAVITY(
@@ -39,7 +39,7 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
             id = R.id.navigation_gravity,
             label = R.string.navigation_gravity,
             shortcutId = "shortcut_gravity",
-			shortcutIcon = R.drawable.ic_shortcut_gravity
+            shortcutIcon = R.drawable.ic_shortcut_gravity
     ),
 
     GYROSCOPE(
@@ -49,7 +49,7 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
             id = R.id.navigation_gyroscope,
             label = R.string.navigation_gyroscope,
             shortcutId = "shortcut_gyroscope",
-			shortcutIcon = R.drawable.ic_shortcut_gyroscope
+            shortcutIcon = R.drawable.ic_shortcut_gyroscope
     ),
 
     LIGHT(
@@ -59,7 +59,7 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
             id = R.id.navigation_light,
             label = R.string.navigation_light,
             shortcutId = "shortcut_light",
-			shortcutIcon = R.drawable.ic_shortcut_light
+            shortcutIcon = R.drawable.ic_shortcut_light
     ),
 
     LINEAR_ACCELERATION(
@@ -69,7 +69,7 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
             id = R.id.navigation_linear_acceleration,
             label = R.string.navigation_linear_acceleration,
             shortcutId = "shortcut_linear_acceleration",
-			shortcutIcon = R.drawable.ic_shortcut_linear_acceleration
+            shortcutIcon = R.drawable.ic_shortcut_linear_acceleration
     ),
 
     MAGNETIC_FIELD(
@@ -79,7 +79,7 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
             id = R.id.navigation_magnetic_field,
             label = R.string.navigation_magnetic_field,
             shortcutId = "shortcut_magnetic_field",
-			shortcutIcon = R.drawable.ic_shortcut_magnetic_field
+            shortcutIcon = R.drawable.ic_shortcut_magnetic_field
     ),
 
     PRESSURE(
@@ -89,7 +89,7 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
             id = R.id.navigation_pressure,
             label = R.string.navigation_pressure,
             shortcutId = "shortcut_pressure",
-			shortcutIcon = R.drawable.ic_shortcut_pressure
+            shortcutIcon = R.drawable.ic_shortcut_pressure
     ),
 
     PROXIMITY(
@@ -99,7 +99,7 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
             id = R.id.navigation_proximity,
             label = R.string.navigation_proximity,
             shortcutId = "shortcut_proximity",
-			shortcutIcon = R.drawable.ic_shortcut_proximity
+            shortcutIcon = R.drawable.ic_shortcut_proximity
     ),
 
     RELATIVE_HUMIDITY(
@@ -109,7 +109,7 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
             id = R.id.navigation_relative_humidity,
             label = R.string.navigation_relative_humidity,
             shortcutId = "shortcut_relative_humidity",
-			shortcutIcon = R.drawable.ic_shortcut_relative_humidity
+            shortcutIcon = R.drawable.ic_shortcut_relative_humidity
     ),
 
     ROTATION_VECTOR(
@@ -119,7 +119,7 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
             id = R.id.navigation_rotation_vector,
             label = R.string.navigation_rotation_vector,
             shortcutId = "shortcut_rotation_vector",
-			shortcutIcon = R.drawable.ic_shortcut_rotation_vector
+            shortcutIcon = R.drawable.ic_shortcut_rotation_vector
     );
 
     companion object Utils {
