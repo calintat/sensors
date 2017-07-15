@@ -22,11 +22,6 @@ android {
 
         versionName "2.0"
     }
-
-    sourceSets {
-
-        main.java.srcDirs += 'src/main/kotlin'
-    }
 }
 
 dependencies {
