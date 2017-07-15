@@ -1,16 +1,17 @@
 package com.calintat.sensors.ui
 
-import android.widget.Toolbar
+import android.support.v7.widget.Toolbar
 import com.calintat.sensors.R
 import com.calintat.sensors.activities.SettingsActivity
-import com.github.calintat.Colorful
+import com.calintat.sensors.utils.AnkoUtils.titleTextColorResource
 import org.jetbrains.anko.*
+import org.jetbrains.anko.appcompat.v7.navigationIconResource
+import org.jetbrains.anko.appcompat.v7.titleResource
+import org.jetbrains.anko.appcompat.v7.toolbar
 import org.jetbrains.anko.design.appBarLayout
 import org.jetbrains.anko.design.coordinatorLayout
 
-object SettingsUI : AnkoComponent<SettingsActivity> {
-
-    internal lateinit var toolbar: Toolbar
+class SettingsUI : AnkoComponent<SettingsActivity> {
 
     override fun createView(ui: AnkoContext<SettingsActivity>) = with(ui) {
 
@@ -22,16 +23,19 @@ object SettingsUI : AnkoComponent<SettingsActivity> {
 
                 appBarLayout {
 
-                    toolbar = toolbar {
+                     toolbar {
 
-                        setTitleTextColor(Colorful.white)
+                        navigationIconResource = R.drawable.ic_action_back
+
+                        setNavigationOnClickListener { owner.finish() }
+
+                        titleResource = R.string.navigation_settings
+
+                        titleTextColorResource = R.color.white
                     }
                 }
 
-                frameLayout {
-
-                    id = R.id.fragment
-                }
+                frameLayout { id = R.id.container }
             }
         }
     }
