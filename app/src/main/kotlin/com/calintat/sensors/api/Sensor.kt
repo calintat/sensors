@@ -1,106 +1,61 @@
 package com.calintat.sensors.api
 
-import android.support.annotation.StringRes
-import com.calintat.sensors.R
+import android.hardware.*
+import android.hardware.Sensor
+import android.support.annotation.IdRes
+import com.calintat.sensors.utils.AnkoFragment
+import org.jetbrains.anko.withArguments
 
-enum class Sensor(val type: Int, @StringRes val unit: Int, val dimension: Int) {
+/**
+ * Fragment that displays the values of a given sensor.
+ */
+abstract class Sensor : AnkoFragment(), SensorEventListener {
 
-    ACCELEROMETER(
+    companion object Builder {
 
-            type = android.hardware.Sensor.TYPE_ACCELEROMETER,
+        fun build(@IdRes id: Int?): com.calintat.sensors.api.Sensor? {
 
-            unit = R.string.metre_per_second_squared,
+            if (id == null) return null
 
-            dimension = 3
-    ),
+            val item = Item.get(id)
 
-    AMBIENT_TEMPERATURE(
+            return when (item?.dimension) {
 
-            type = android.hardware.Sensor.TYPE_AMBIENT_TEMPERATURE,
+                1 -> Sensor1d().withArguments("id" to id)
 
-            unit = R.string.celsius,
+                3 -> Sensor3d().withArguments("id" to id)
 
-            dimension = 1
-    ),
+                else -> null
+            }
+        }
+    }
 
-    GRAVITY(
+    abstract fun onValuesChanged(newValues: FloatArray)
 
-            type = android.hardware.Sensor.TYPE_GRAVITY,
+    var values: FloatArray? = null
 
-            unit = R.string.metre_per_second_squared,
+    val item by lazy { Item.get(arguments.getInt("id"))!! }
 
-            dimension = 3
-    ),
+    val FREQUENCY get() = 100000000
 
-    GYROSCOPE(
+    override fun onPause() {
 
-            type = android.hardware.Sensor.TYPE_GYROSCOPE,
+        super.onPause()
 
-            unit = R.string.radian_per_second,
+        item.unregisterListener(activity, this)
+    }
 
-            dimension = 3
-    ),
+    override fun onResume() {
 
-    LIGHT(
+        super.onResume()
 
-            type = android.hardware.Sensor.TYPE_LIGHT,
+        item.registerListener(activity, this, FREQUENCY)
+    }
 
-            unit = R.string.lux,
+    override fun onSensorChanged(event: SensorEvent?) {
 
-            dimension = 1
-    ),
+        event?.values?.let { values = it; onValuesChanged(it) }
+    }
 
-    LINEAR_ACCELERATION(
-
-            type = android.hardware.Sensor.TYPE_LINEAR_ACCELERATION,
-
-            unit = R.string.metre_per_second_squared,
-
-            dimension = 3
-    ),
-
-    MAGNETIC_FIELD(
-
-            type = android.hardware.Sensor.TYPE_MAGNETIC_FIELD,
-
-            unit = R.string.microtesla,
-
-            dimension = 3
-    ),
-
-    PRESSURE(
-
-            type = android.hardware.Sensor.TYPE_PRESSURE,
-
-            unit = R.string.millibar,
-
-            dimension = 1
-    ),
-
-    PROXIMITY(
-
-            type = android.hardware.Sensor.TYPE_PROXIMITY,
-
-            unit = R.string.centimetre,
-
-            dimension = 1
-    ),
-
-    RELATIVE_HUMIDITY(
-
-            type = android.hardware.Sensor.TYPE_RELATIVE_HUMIDITY,
-
-            unit = R.string.percentage,
-
-            dimension = 1
-    ),
-
-    ROTATION_VECTOR(
-
-            type = android.hardware.Sensor.TYPE_ROTATION_VECTOR,
-
-            unit = R.string.unitless,
-
-            dimension = 3
-    );
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) { }
 }
