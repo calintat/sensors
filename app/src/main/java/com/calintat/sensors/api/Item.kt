@@ -2,12 +2,17 @@ package com.calintat.sensors.api
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ShortcutInfo
+import android.graphics.drawable.Icon
 import android.hardware.Sensor
 import android.hardware.SensorEventListener
 import android.support.annotation.DrawableRes
 import android.support.annotation.IdRes
+import android.support.annotation.RequiresApi
 import android.support.annotation.StringRes
 import com.calintat.sensors.R
+import com.calintat.sensors.activities.MainActivity
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.sensorManager
 
 enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @IdRes val id: Int, @StringRes val label: Int, val shortcutId: String, @DrawableRes val shortcutIcon: Int) {
@@ -133,6 +138,20 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
         fun get(shortcutId: String?) = values().firstOrNull { it.shortcutId == shortcutId }
 
         fun firstAvailableItem(ctx: Context) = values().firstOrNull { it.isAvailable(ctx) }
+    }
+
+    /**
+     * Builds a [ShortcutInfo] object. This is used to set dynamic shortcuts.
+     */
+    @RequiresApi(25) fun buildShortcut(context: Context): ShortcutInfo {
+
+        val intent = context.intentFor<MainActivity>(SHORTCUT_ID to shortcutId)
+
+        return ShortcutInfo.Builder(context, shortcutId)
+                .setRank(ordinal)
+                .setShortLabel(context.getString(label))
+                .setIntent(intent.setAction(Intent.ACTION_MAIN))
+                .setIcon(Icon.createWithResource(context, shortcutIcon)).build()
     }
 
     /**
