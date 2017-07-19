@@ -14,7 +14,9 @@
             android:targetPackage="com.calintat.sensors"
             android:targetClass="com.calintat.sensors.activities.MainActivity" >
 
-            <extra android:name="shortcut_id" android:value="shortcut_accelerometer" />
+            <extra
+                android:name="com.calintat.sensors.api.SHORTCUT_ID"
+                android:value="shortcut_accelerometer" />
 
         </intent>
 
@@ -31,7 +33,9 @@
             android:targetPackage="com.calintat.sensors"
             android:targetClass="com.calintat.sensors.activities.MainActivity" >
 
-            <extra android:name="shortcut_id" android:value="shortcut_ambient_temperature" />
+            <extra
+                android:name="com.calintat.sensors.api.SHORTCUT_ID"
+                android:value="shortcut_ambient_temperature" />
 
         </intent>
 
@@ -48,7 +52,9 @@
             android:targetPackage="com.calintat.sensors"
             android:targetClass="com.calintat.sensors.activities.MainActivity" >
 
-            <extra android:name="shortcut_id" android:value="shortcut_gravity" />
+            <extra
+                android:name="com.calintat.sensors.api.SHORTCUT_ID"
+                android:value="shortcut_gravity" />
 
         </intent>
 
@@ -65,7 +71,9 @@
             android:targetPackage="com.calintat.sensors"
             android:targetClass="com.calintat.sensors.activities.MainActivity" >
 
-            <extra android:name="shortcut_id" android:value="shortcut_gyroscope" />
+            <extra
+                android:value="shortcut_gyroscope"
+                android:name="com.calintat.sensors.api.SHORTCUT_ID" />
 
         </intent>
 

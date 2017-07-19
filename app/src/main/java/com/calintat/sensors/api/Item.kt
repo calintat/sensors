@@ -124,9 +124,11 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
 
     companion object Utils {
 
+        private const val SHORTCUT_ID = "com.calintat.sensors.api.SHORTCUT_ID"
+
         fun get(id: Int?) = values().firstOrNull { it.id == id }
 
-        fun get(intent: Intent) = intent.getStringExtra("shortcut_id")?.let { get(it) }
+        fun get(intent: Intent) = intent.getStringExtra(SHORTCUT_ID)?.let { get(it) }
 
         fun get(shortcutId: String?) = values().firstOrNull { it.shortcutId == shortcutId }
 
