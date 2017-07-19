@@ -1,7 +1,8 @@
 package com.calintat.sensors.api
 
-import android.hardware.*
 import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
 import android.support.annotation.IdRes
 import com.calintat.sensors.utils.AnkoFragment
 import org.jetbrains.anko.withArguments

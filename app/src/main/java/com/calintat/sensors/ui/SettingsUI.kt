@@ -3,12 +3,15 @@ package com.calintat.sensors.ui
 import com.calintat.sensors.R
 import com.calintat.sensors.activities.SettingsActivity
 import com.calintat.sensors.utils.AnkoProperties.titleTextColorResource
-import org.jetbrains.anko.*
+import org.jetbrains.anko.AnkoComponent
+import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.appcompat.v7.navigationIconResource
 import org.jetbrains.anko.appcompat.v7.titleResource
 import org.jetbrains.anko.appcompat.v7.toolbar
 import org.jetbrains.anko.design.appBarLayout
 import org.jetbrains.anko.design.coordinatorLayout
+import org.jetbrains.anko.frameLayout
+import org.jetbrains.anko.verticalLayout
 
 class SettingsUI : AnkoComponent<SettingsActivity> {
 
