@@ -8,7 +8,7 @@ import com.calintat.sensors.R
 import com.calintat.sensors.api.Snapshot.Companion.snap
 import com.calintat.sensors.recycler.Adapter
 import com.calintat.sensors.utils.AnkoFragment
-import com.calintat.sensors.utils.AnkoUtils.textAppearance
+import com.calintat.sensors.utils.AnkoProperties.textAppearance
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 

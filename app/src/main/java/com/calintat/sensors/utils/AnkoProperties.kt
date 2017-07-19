@@ -9,7 +9,7 @@ import android.support.v7.content.res.AppCompatResources
 import android.support.v7.widget.Toolbar
 import android.widget.TextView
 
-object AnkoUtils {
+object AnkoProperties {
 
     var Toolbar.titleTextColorResource: Int
 

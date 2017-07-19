@@ -1,9 +1,8 @@
 package com.calintat.sensors.ui
 
-import android.support.v7.widget.Toolbar
 import com.calintat.sensors.R
 import com.calintat.sensors.activities.SettingsActivity
-import com.calintat.sensors.utils.AnkoUtils.titleTextColorResource
+import com.calintat.sensors.utils.AnkoProperties.titleTextColorResource
 import org.jetbrains.anko.*
 import org.jetbrains.anko.appcompat.v7.navigationIconResource
 import org.jetbrains.anko.appcompat.v7.titleResource

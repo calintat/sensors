@@ -7,7 +7,7 @@ import android.view.ViewManager
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.calintat.sensors.R
-import com.calintat.sensors.utils.AnkoUtils.textAppearance
+import com.calintat.sensors.utils.AnkoProperties.textAppearance
 import org.jetbrains.anko.*
 
 /**

@@ -8,7 +8,7 @@ import android.view.Gravity
 import com.calintat.sensors.R
 import com.calintat.sensors.activities.MainActivity
 import com.calintat.sensors.api.Item
-import com.calintat.sensors.utils.AnkoUtils.overflowIconResource
+import com.calintat.sensors.utils.AnkoProperties.overflowIconResource
 import org.jetbrains.anko.*
 import org.jetbrains.anko.appcompat.v7.navigationIconResource
 import org.jetbrains.anko.appcompat.v7.toolbar
