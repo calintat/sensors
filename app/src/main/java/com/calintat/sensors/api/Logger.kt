@@ -1,67 +1,45 @@
 package com.calintat.sensors.api
 
-import android.support.v7.widget.LinearLayoutManager
-import android.view.Gravity
-import android.view.ViewGroup
-import android.widget.LinearLayout
-import com.calintat.sensors.R
-import com.calintat.sensors.api.Snapshot.Companion.snap
 import com.calintat.sensors.recycler.Adapter
+import com.calintat.sensors.ui.api.LoggerUI
 import com.calintat.sensors.utils.AnkoFragment
-import com.calintat.sensors.utils.AnkoProperties.textAppearance
-import org.jetbrains.anko.*
-import org.jetbrains.anko.recyclerview.v7.recyclerView
 
 /**
  * Fragment which acts as a data logger for sensor snapshots.
  */
-class Logger : AnkoFragment() {
+class Logger : AnkoFragment<Logger>() {
 
-    var adapter: Adapter? = null
+    override val me get() = this
 
-    val isNotEmpty get() = adapter?.items?.isNotEmpty()
+    override val ui get() = LoggerUI
 
-    val timestamp by lazy { System.currentTimeMillis() }
+    /**
+     * Custom data structure for sensor snapshots.
+     */
+    data class Snapshot(val timestamp: Long, val data: List<Float>)
 
-    fun log(xs: FloatArray) = adapter?.add(timestamp snap xs.toList())
+    /**
+     * Adapter for the recycler view.
+     */
+    val adapter by lazy { Adapter(activity) }
 
-    override fun createView(ui: AnkoContext<ViewGroup>) = with(ui) {
+    /**
+     * Returns whether the logger is empty.
+     */
+    val isEmpty get() = !isAdded || adapter.items.isEmpty()
 
-        adapter = Adapter(activity)
+    /**
+     * Time in milliseconds of the first entry.
+     */
+    val initialTimeMillis by lazy { System.currentTimeMillis() }
 
-        verticalLayout {
+    /**
+     * Returns a time in milliseconds relative to the initial time.
+     */
+    val timestamp get() = System.currentTimeMillis() - initialTimeMillis
 
-            linearLayout {
-
-                lparams(width = matchParent, height = dip(56))
-
-                orientation = LinearLayout.HORIZONTAL
-
-                textView(text = R.string.time) {
-
-                    gravity = Gravity.CENTER
-
-                    textAppearance = R.style.TextAppearance_AppCompat_Subhead
-
-                }.lparams(width = 0, height = matchParent, weight = 1f)
-
-                textView(text = R.string.data) {
-
-                    gravity = Gravity.CENTER
-
-                    textAppearance = R.style.TextAppearance_AppCompat_Subhead
-
-                }.lparams(width = 0, height = matchParent, weight = 1f)
-            }
-
-            recyclerView {
-
-                lparams(width = matchParent, height = 0, weight = 1f)
-
-                adapter = this@Logger.adapter
-
-                layoutManager = LinearLayoutManager(ctx)
-            }
-        }
-    }
+    /**
+     * Records a new entry to the logger. The entry must be an array of floats.
+     */
+    fun log(data: FloatArray) = adapter.add(Snapshot(timestamp, data.toList()))
 }
