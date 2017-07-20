@@ -3,15 +3,15 @@ package com.calintat.sensors.recycler
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import com.calintat.sensors.api.Snapshot
-import com.calintat.sensors.ui.ListItem
+import com.calintat.sensors.api.Logger
+import com.calintat.sensors.ui.recycler.ListItem
 import org.jetbrains.anko.AnkoContext
 
 class Adapter(private val context: Context) : RecyclerView.Adapter<ViewHolder>() {
 
-    val items = mutableListOf<Snapshot>()
+    val items = mutableListOf<Logger.Snapshot>()
 
-    fun add(item: Snapshot) {
+    fun add(item: Logger.Snapshot) {
 
         items.add(0, item)
 
