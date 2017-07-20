@@ -1,43 +1,55 @@
 package com.calintat.sensors.api
 
-import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.support.annotation.IdRes
+import android.widget.TextView
+import com.calintat.alps.getLong
 import com.calintat.sensors.utils.AnkoFragment
 import org.jetbrains.anko.withArguments
 
 /**
  * Fragment that displays the values of a given sensor.
  */
-abstract class Sensor : AnkoFragment(), SensorEventListener {
+class Sensor : AnkoFragment<Sensor>(), SensorEventListener {
 
     companion object Builder {
 
-        fun build(@IdRes id: Int?): com.calintat.sensors.api.Sensor? {
+        private const val ID = "com.calintat.sensors.api.ID"
 
-            if (id == null) return null
-
-            val item = Item.get(id)
-
-            return when (item?.dimension) {
-
-                1 -> Sensor1d().withArguments("id" to id)
-
-                3 -> Sensor3d().withArguments("id" to id)
-
-                else -> null
-            }
-        }
+        fun build(@IdRes id: Int?) = id?.let { Sensor().withArguments(ID to it) }
     }
 
-    abstract fun onValuesChanged(newValues: FloatArray)
+    override val me get() = this
 
+    override val ui get() = if (item.dimension == 1) Sensor1D else Sensor3D
+
+    /**
+     * Time in milliseconds when [values] was last updated.
+     */
+    var time = 0L
+
+    /**
+     * Current sensor values that are being displayed.
+     */
     var values: FloatArray? = null
 
-    val item by lazy { Item.get(arguments.getInt("id"))!! }
+    /**
+     * List of text views which are used to display [values].
+     */
+    var textViews = listOf<TextView>()
 
-    val FREQUENCY get() = 100000000
+    /**
+     * The time delay between updates in milliseconds.
+     * TODO: replace with delegate (requires Alps 2.0.1)
+     */
+    val delay by lazy { activity.getLong("pref_delay", 1000) }
+
+    /**
+     * The [Item] object for the sensor that will be displayed.
+     */
+    val item by lazy { checkNotNull(Item.get(arguments.getInt(ID))) }
 
     override fun onPause() {
 
@@ -50,13 +62,23 @@ abstract class Sensor : AnkoFragment(), SensorEventListener {
 
         super.onResume()
 
-        item.registerListener(activity, this, FREQUENCY)
+        item.registerListener(activity, this, SensorManager.SENSOR_DELAY_FASTEST)
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
 
-        event?.values?.let { values = it; onValuesChanged(it) }
+        event?.values?.let {
+
+            val currentTime = System.currentTimeMillis()
+
+            if (currentTime - time >= delay) {
+
+                time = currentTime; values = it
+
+                it.zip(textViews) { v, textView -> textView.text = v.toString() }
+            }
+        }
     }
 
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) { }
+    override fun onAccuracyChanged(sensor: android.hardware.Sensor?, accuracy: Int) { }
 }
