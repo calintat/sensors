@@ -15,7 +15,10 @@ class Logger : AnkoFragment<Logger>() {
     /**
      * Custom data structure for sensor snapshots.
      */
-    data class Snapshot(val timestamp: Long, val data: List<Float>)
+    data class Snapshot(val timestamp: Long, val data: List<Float>) {
+
+        fun printTimeInSeconds() = (timestamp / 1000f).toString()
+    }
 
     /**
      * Adapter for the recycler view.
