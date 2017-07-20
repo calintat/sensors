@@ -1,7 +1,6 @@
 package com.calintat.sensors.api
 
 import com.calintat.sensors.recycler.Adapter
-import com.calintat.sensors.ui.api.LoggerUI
 import com.calintat.sensors.utils.AnkoFragment
 
 /**

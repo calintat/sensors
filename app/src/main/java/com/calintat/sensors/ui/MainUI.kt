@@ -17,7 +17,7 @@ import org.jetbrains.anko.design.coordinatorLayout
 import org.jetbrains.anko.design.floatingActionButton
 import org.jetbrains.anko.design.navigationView
 
-class MainUI : AnkoComponent<MainActivity> {
+object MainUI : AnkoComponent<MainActivity> {
 
     internal lateinit var drawerLayout: DrawerLayout
 

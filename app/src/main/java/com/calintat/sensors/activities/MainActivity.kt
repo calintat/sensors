@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     internal val KEY_ID = "com.calintat.sensors.KEY_ID"
 
-    internal val ui by lazy { MainUI() }
+    internal val ui by lazy { MainUI }
 
     internal var id: Int? = null
 
@@ -163,7 +163,7 @@ class MainActivity : AppCompatActivity() {
 
         Item.get(id)?.let {
 
-            alert { customView = About().createView(AnkoContext.create(ctx, it)) }.show()
+            alert { customView = About.createView(AnkoContext.create(ctx, it)) }.show()
         }
     }
 
@@ -178,7 +178,7 @@ class MainActivity : AppCompatActivity() {
 
     internal fun refreshToolbarMenu() {
 
-        ui.toolbar.menu.findItem(R.id.action_clear).isVisible = logger?.isNotEmpty ?: false
+        ui.toolbar.menu.findItem(R.id.action_clear).isVisible = logger?.isEmpty?.not() ?: false
     }
 
     internal fun replace(@IdRes containerViewId: Int, fragment: Fragment?) {

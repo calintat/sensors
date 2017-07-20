@@ -1,11 +1,11 @@
-package com.calintat.sensors.ui.dialogs
+package com.calintat.sensors.ui
 
 import com.calintat.sensors.R
 import com.calintat.sensors.api.Item
-import com.calintat.sensors.ui.utils.AnkoProperties.textAppearance
+import com.calintat.sensors.utils.AnkoProperties.textAppearance
 import org.jetbrains.anko.*
 
-class About : AnkoComponent<Item> {
+object About : AnkoComponent<Item> {
 
     override fun createView(ui: AnkoContext<Item>) = with(ui) {
 

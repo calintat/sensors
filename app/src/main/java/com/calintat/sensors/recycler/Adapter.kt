@@ -4,7 +4,7 @@ import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import com.calintat.sensors.api.Logger
-import com.calintat.sensors.ui.recycler.ListItem
+import com.calintat.sensors.ui.ListItem
 import org.jetbrains.anko.AnkoContext
 
 class Adapter(private val context: Context) : RecyclerView.Adapter<ViewHolder>() {
