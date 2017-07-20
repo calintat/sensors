@@ -1,8 +1,8 @@
-package com.calintat.sensors.ui
+package com.calintat.sensors.ui.dialogs
 
 import com.calintat.sensors.R
 import com.calintat.sensors.api.Item
-import com.calintat.sensors.utils.AnkoProperties.textAppearance
+import com.calintat.sensors.ui.utils.AnkoProperties.textAppearance
 import org.jetbrains.anko.*
 
 class About : AnkoComponent<Item> {

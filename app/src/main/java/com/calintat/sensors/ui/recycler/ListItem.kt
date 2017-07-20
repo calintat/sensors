@@ -1,4 +1,4 @@
-package com.calintat.sensors.ui
+package com.calintat.sensors.ui.recycler
 
 import android.support.annotation.IdRes
 import android.view.Gravity
