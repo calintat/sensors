@@ -3,15 +3,15 @@ package com.calintat.sensors.utils
 import android.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import org.jetbrains.anko.AnkoComponent
 import org.jetbrains.anko.AnkoContext
 
-abstract class AnkoFragment : Fragment(), AnkoComponent<ViewGroup> {
+abstract class AnkoFragment<T> : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup, savedInstanceState: Bundle?): View {
+    abstract val me: T
 
-        return createView(AnkoContext.create(activity, container))
-    }
+    abstract val ui: AnkoComponent<T>
+
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup, savedInstanceState: Bundle?) = ui.createView(AnkoContext.create(activity, me))
 }

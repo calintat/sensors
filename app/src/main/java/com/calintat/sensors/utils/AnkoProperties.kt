@@ -1,4 +1,4 @@
-package com.calintat.sensors.ui.utils
+package com.calintat.sensors.utils
 
 import android.os.Build
 import android.support.v4.content.ContextCompat
