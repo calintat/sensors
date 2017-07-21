@@ -90,7 +90,14 @@ class MainActivity : AppCompatActivity() {
 
     internal fun setTheme() {
 
-        AppCompatDelegate.setDefaultNightMode(getString("pref_theme", "1").toInt())
+        when (getString("pref_theme")) {
+
+            "0" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO)
+
+            "1" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
+            "2" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
     }
 
     internal fun init(savedInstanceState: Bundle?) {
