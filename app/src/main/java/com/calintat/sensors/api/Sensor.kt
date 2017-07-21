@@ -5,7 +5,7 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.support.annotation.IdRes
 import android.widget.TextView
-import com.calintat.alps.getLong
+import com.calintat.alps.longPref
 import com.calintat.sensors.utils.AnkoFragment
 import org.jetbrains.anko.withArguments
 
@@ -28,7 +28,7 @@ class Sensor : AnkoFragment<Sensor>(), SensorEventListener {
     /**
      * Time in milliseconds when [values] was last updated.
      */
-    var time = 0L
+    var timestamp = 0L
 
     /**
      * Current sensor values that are being displayed.
@@ -42,9 +42,8 @@ class Sensor : AnkoFragment<Sensor>(), SensorEventListener {
 
     /**
      * The time delay between updates in milliseconds.
-     * TODO: replace with delegate (requires Alps 2.0.1)
      */
-    val delay by lazy { activity.getLong("pref_delay", 1000) }
+    val delayMillis by longPref("pref_delay", 1000)
 
     /**
      * The [Item] object for the sensor that will be displayed.
@@ -71,9 +70,9 @@ class Sensor : AnkoFragment<Sensor>(), SensorEventListener {
 
             val currentTime = System.currentTimeMillis()
 
-            if (currentTime - time >= delay) {
+            if (currentTime - timestamp >= delayMillis) {
 
-                time = currentTime; values = it
+                timestamp = currentTime; values = it
 
                 it.zip(textViews) { v, textView -> textView.text = v.toString() }
             }
