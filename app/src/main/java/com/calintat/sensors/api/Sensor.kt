@@ -79,5 +79,5 @@ class Sensor : AnkoFragment<Sensor>(), SensorEventListener {
         }
     }
 
-    override fun onAccuracyChanged(sensor: android.hardware.Sensor?, accuracy: Int) { }
+    override fun onAccuracyChanged(sensor: android.hardware.Sensor?, accuracy: Int) {}
 }

@@ -25,7 +25,7 @@ object SettingsUI : AnkoComponent<SettingsActivity> {
 
                 appBarLayout {
 
-                     toolbar {
+                    toolbar {
 
                         navigationIconResource = R.drawable.ic_action_back
 
