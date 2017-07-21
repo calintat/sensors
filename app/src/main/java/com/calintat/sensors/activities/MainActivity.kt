@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
 
         id?.let { outState.putInt(KEY_ID, it) }
-        
+
         super.onSaveInstanceState(outState)
     }
 
