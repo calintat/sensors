@@ -1,7 +1,6 @@
 package com.calintat.sensors.ui
 
 import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.NavigationView
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.widget.Toolbar
 import android.view.Gravity
@@ -23,13 +22,25 @@ object MainUI : AnkoComponent<MainActivity> {
 
     internal lateinit var toolbar: Toolbar
 
-    internal lateinit var navigationView: NavigationView
-
     override fun createView(ui: AnkoContext<MainActivity>) = with(ui) {
 
         include<DrawerLayout>(R.layout.drawer_layout) {
 
             drawerLayout = this
+
+            val navigationView = navigationView {
+
+                inflateMenu(R.menu.navigation)
+
+                menu.itemsSequence().forEach {
+
+                    it.isVisible = Item.get(it.itemId)?.isAvailable(ctx) ?: true
+                }
+
+                setNavigationItemSelectedListener { owner.navigationItemSelected(it); true }
+
+                layoutParams = DrawerLayout.LayoutParams(wrapContent, matchParent, Gravity.START)
+            }
 
             coordinatorLayout {
 
@@ -94,20 +105,6 @@ object MainUI : AnkoComponent<MainActivity> {
 
                     gravity = Gravity.BOTTOM or Gravity.CENTER; bottomMargin = dip(16)
                 }
-            }
-
-            navigationView = navigationView {
-
-                inflateMenu(R.menu.navigation)
-
-                menu.itemsSequence().forEach {
-
-                    it.isVisible = Item.get(it.itemId)?.isAvailable(ctx) ?: true
-                }
-
-                setNavigationItemSelectedListener { owner.navigationItemSelected(it); true }
-
-                layoutParams = DrawerLayout.LayoutParams(wrapContent, matchParent, Gravity.START)
             }
         }
     }

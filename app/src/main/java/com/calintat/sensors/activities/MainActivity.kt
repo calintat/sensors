@@ -8,6 +8,7 @@ import android.support.customtabs.CustomTabsIntent
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.app.AppCompatDelegate
+import android.view.Gravity
 import android.view.MenuItem
 import com.calintat.alps.getInt
 import com.calintat.alps.getString
@@ -75,7 +76,7 @@ class MainActivity : AppCompatActivity() {
 
         when {
 
-            ui.drawerLayout.isDrawerOpen(ui.navigationView) -> ui.drawerLayout.closeDrawers()
+            ui.drawerLayout.isDrawerOpen(Gravity.START) -> ui.drawerLayout.closeDrawers()
 
             else -> super.onBackPressed()
         }
