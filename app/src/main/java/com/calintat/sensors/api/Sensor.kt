@@ -72,7 +72,7 @@ class Sensor : AnkoFragment<Sensor>(), SensorEventListener {
 
             if (currentTime - timestamp >= delayMillis) {
 
-                timestamp = currentTime; values = it
+                timestamp = currentTime; values = it.copyOf(item.dimension)
 
                 it.zip(textViews) { v, textView -> textView.text = v.toString() }
             }
