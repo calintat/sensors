@@ -23,7 +23,7 @@ class Logger : AnkoFragment<Logger>() {
     /**
      * Adapter for the recycler view.
      */
-    val adapter by lazy { Adapter(activity) }
+    val adapter = Adapter()
 
     /**
      * Returns whether the logger is empty.

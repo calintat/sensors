@@ -1,13 +1,12 @@
 package com.calintat.sensors.recycler
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import com.calintat.sensors.api.Logger
 import com.calintat.sensors.ui.ListItem
 import org.jetbrains.anko.AnkoContext
 
-class Adapter(private val context: Context) : RecyclerView.Adapter<ViewHolder>() {
+class Adapter : RecyclerView.Adapter<ViewHolder>() {
 
     val items = mutableListOf<Logger.Snapshot>()
 
@@ -27,6 +26,6 @@ class Adapter(private val context: Context) : RecyclerView.Adapter<ViewHolder>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        return ViewHolder(ListItem.createView(AnkoContext.create(context, parent)))
+        return ViewHolder(ListItem.createView(AnkoContext.create(parent.context, parent)))
     }
 }
