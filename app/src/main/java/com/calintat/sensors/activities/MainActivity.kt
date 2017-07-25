@@ -67,9 +67,11 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
+        setTheme()
+
         ui.setContentView(this)
 
-        init(savedInstanceState); setTheme()
+        init(savedInstanceState)
     }
 
     override fun onBackPressed() {
