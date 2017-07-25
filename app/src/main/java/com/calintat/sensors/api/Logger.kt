@@ -33,12 +33,12 @@ class Logger : AnkoFragment<Logger>() {
     /**
      * Time in milliseconds of the first entry.
      */
-    val initialTimeMillis by lazy { System.currentTimeMillis() }
+    private val initTimeMillis by lazy { System.currentTimeMillis() }
 
     /**
      * Returns a time in milliseconds relative to the initial time.
      */
-    val timestamp get() = System.currentTimeMillis() - initialTimeMillis
+    private val timestamp get() = System.currentTimeMillis() - initTimeMillis
 
     /**
      * Records a new entry to the logger. The entry must be an array of floats.
