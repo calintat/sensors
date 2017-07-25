@@ -41,11 +41,6 @@ class Sensor : AnkoFragment<Sensor>(), SensorEventListener {
     var textViews = listOf<TextView>()
 
     /**
-     * The time delay between updates in milliseconds.
-     */
-    val delayMillis by longPref("pref_delay", 1000)
-
-    /**
      * The [Item] object for the sensor that will be displayed.
      */
     val item by lazy { checkNotNull(Item.get(arguments.getInt(ID))) }
@@ -70,7 +65,7 @@ class Sensor : AnkoFragment<Sensor>(), SensorEventListener {
 
             val currentTime = System.currentTimeMillis()
 
-            if (currentTime - timestamp >= delayMillis) {
+            if (currentTime - timestamp >= 750) {
 
                 timestamp = currentTime; values = it.copyOf(item.dimension)
 
