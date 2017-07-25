@@ -28,7 +28,7 @@ class Logger : AnkoFragment<Logger>() {
     /**
      * Returns whether the logger is empty.
      */
-    val isEmpty get() = !isAdded || adapter.items.isEmpty()
+    val isEmpty get() = adapter.items.isEmpty()
 
     /**
      * Time in milliseconds of the first entry.
