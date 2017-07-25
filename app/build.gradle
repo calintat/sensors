@@ -26,33 +26,35 @@ android {
 
 dependencies {
 
-    ext.support_version = '25.4.0'
+    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
 
-    ext.anko_version = '0.10.1'
+    compile "com.android.support:customtabs:$supportLibraryVersion"
 
-    compile "com.android.support:cardview-v7:$support_version"
+    compile "com.android.support:design:$supportLibraryVersion"
 
-    compile "com.android.support:customtabs:$support_version"
+    compile "com.android.support:cardview-v7:$supportLibraryVersion"
 
-    compile "com.android.support:design:$support_version"
+    compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
 
-    compile "com.android.support:support-v4:$support_version"
+    compile "com.github.calintat.alps:alps-core:2.0.2"
 
-    compile 'com.github.calintat.alps:alps-core:2.0.2'
+    compile "com.github.calintat.alps:alps-dsl:2.0.2"
 
-    compile 'com.github.calintat.alps:alps-dsl:2.0.2'
+    compile "com.github.calintat:colorful:1.0.1"
 
-    compile 'com.github.calintat:colorful:1.0.1'
+    compile "org.jetbrains.anko:anko-sdk21:$ankoVersion"
+    compile "org.jetbrains.anko:anko-sdk21-listeners:$ankoVersion"
 
-    compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
+    compile "org.jetbrains.anko:anko-appcompat-v7:$ankoVersion"
+    compile "org.jetbrains.anko:anko-appcompat-v7-listeners:$ankoVersion"
 
-    compile "org.jetbrains.anko:anko-cardview-v7:$anko_version"
+    compile "org.jetbrains.anko:anko-design:$ankoVersion"
+    compile "org.jetbrains.anko:anko-design-listeners:$ankoVersion"
 
-    compile "org.jetbrains.anko:anko-design:$anko_version"
+    compile "org.jetbrains.anko:anko-cardview-v7:$ankoVersion"
 
-    compile "org.jetbrains.anko:anko-recyclerview-v7:$anko_version"
+    compile "org.jetbrains.anko:anko-recyclerview-v7:$ankoVersion"
+    compile "org.jetbrains.anko:anko-recyclerview-v7-listeners:$ankoVersion"
 
-    compile "org.jetbrains.anko:anko-sdk25:$anko_version"
-
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 }
