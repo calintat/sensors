@@ -43,5 +43,5 @@ class Logger : AnkoFragment<Logger>() {
     /**
      * Records a new entry to the logger. The entry must be an array of floats.
      */
-    fun log(data: FloatArray) = adapter.add(Snapshot(timestamp, data.toList()))
+    fun add(data: FloatArray) = adapter.add(Snapshot(timestamp, data.toList()))
 }

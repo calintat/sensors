@@ -159,7 +159,7 @@ class MainActivity : AppCompatActivity() {
 
     internal fun addToLogger() {
 
-        sensor?.values?.let { logger?.log(it); refreshToolbarMenu() }
+        sensor?.values?.let { logger?.add(it); refreshToolbarMenu() }
     }
 
     internal fun actionClear() {
