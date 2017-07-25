@@ -2,7 +2,7 @@ package com.calintat.sensors.api
 
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Gravity
-import android.widget.LinearLayout
+import android.widget.TextView
 import com.calintat.sensors.R
 import com.calintat.sensors.utils.AnkoProperties.textAppearance
 import org.jetbrains.anko.*
@@ -19,35 +19,30 @@ object LoggerUI : AnkoComponent<Logger> {
 
             linearLayout {
 
-                lparams(width = matchParent, height = dip(56))
+                textView(text = R.string.time)
 
-                orientation = LinearLayout.HORIZONTAL
+                textView(text = R.string.data)
 
-                textView(text = R.string.time) {
+            }.applyRecursively {
 
-                    gravity = Gravity.CENTER
+                if (it is TextView) {
 
-                    textAppearance = R.style.TextAppearance_AppCompat_Subhead
+                    it.lparams(width = 0, height = matchParent, weight = 1f)
 
-                }.lparams(width = 0, height = matchParent, weight = 1f)
+                    it.gravity = Gravity.CENTER
 
-                textView(text = R.string.data) {
+                    it.textAppearance = R.style.TextAppearance_AppCompat_Subhead
+                }
 
-                    gravity = Gravity.CENTER
-
-                    textAppearance = R.style.TextAppearance_AppCompat_Subhead
-
-                }.lparams(width = 0, height = matchParent, weight = 1f)
-            }
+            }.lparams(width = matchParent, height = dip(56))
 
             recyclerView {
-
-                lparams(width = matchParent, height = 0, weight = 1f)
 
                 adapter = owner.adapter
 
                 layoutManager = LinearLayoutManager(ctx)
-            }
+
+            }.lparams(width = matchParent, height = 0, weight = 1f)
         }
     }
 }
