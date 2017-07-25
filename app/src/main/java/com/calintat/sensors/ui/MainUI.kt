@@ -28,20 +28,6 @@ object MainUI : AnkoComponent<MainActivity> {
 
             drawerLayout = this
 
-            val navigationView = navigationView {
-
-                inflateMenu(R.menu.navigation)
-
-                menu.itemsSequence().forEach {
-
-                    it.isVisible = Item.get(it.itemId)?.isAvailable(ctx) ?: true
-                }
-
-                setNavigationItemSelectedListener { owner.navigationItemSelected(it); true }
-
-                layoutParams = DrawerLayout.LayoutParams(wrapContent, matchParent, Gravity.START)
-            }
-
             coordinatorLayout {
 
                 lparams(width = matchParent, height = wrapContent)
@@ -60,7 +46,7 @@ object MainUI : AnkoComponent<MainActivity> {
 
                     navigationIconResource = R.drawable.ic_action_menu
 
-                    setNavigationOnClickListener { drawerLayout.openDrawer(navigationView) }
+                    setNavigationOnClickListener { drawerLayout.openDrawer(Gravity.START) }
 
                 }.lparams(width = matchParent, height = dimen(R.dimen.app_bar_height))
 
@@ -105,6 +91,20 @@ object MainUI : AnkoComponent<MainActivity> {
 
                     gravity = Gravity.BOTTOM or Gravity.CENTER; bottomMargin = dip(16)
                 }
+            }
+
+            navigationView {
+
+                inflateMenu(R.menu.navigation)
+
+                menu.itemsSequence().forEach {
+
+                    it.isVisible = Item.get(it.itemId)?.isAvailable(ctx) ?: true
+                }
+
+                setNavigationItemSelectedListener { owner.navigationItemSelected(it); true }
+
+                layoutParams = DrawerLayout.LayoutParams(wrapContent, matchParent, Gravity.START)
             }
         }
     }
