@@ -1,5 +1,6 @@
 package com.calintat.sensors.api
 
+import android.view.View
 import com.calintat.sensors.recycler.Adapter
 import com.calintat.sensors.utils.AnkoFragment
 
@@ -43,5 +44,8 @@ class Logger : AnkoFragment<Logger>() {
     /**
      * Records a new entry to the logger. The entry must be an array of floats.
      */
-    fun add(data: FloatArray) = adapter.add(Snapshot(timestamp, data.toList()))
+    fun add(data: FloatArray) {
+
+        adapter.add(Snapshot(timestamp, data.toList())); view.visibility = View.VISIBLE
+    }
 }

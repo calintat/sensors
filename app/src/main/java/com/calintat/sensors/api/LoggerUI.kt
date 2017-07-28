@@ -2,6 +2,7 @@ package com.calintat.sensors.api
 
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Gravity
+import android.view.View
 import android.widget.TextView
 import com.calintat.sensors.R
 import com.calintat.sensors.utils.AnkoProperties.textAppearance
@@ -16,6 +17,8 @@ object LoggerUI : AnkoComponent<Logger> {
     override fun createView(ui: AnkoContext<Logger>) = with(ui) {
 
         verticalLayout {
+
+            visibility = View.INVISIBLE
 
             linearLayout {
 
