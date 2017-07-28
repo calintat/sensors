@@ -28,4 +28,4 @@ Translations
 ------------
 
 Want to help translate Sensors to your language?
-Just email me the translated [strings.xml](app/src/main/res/values/strings.xml) file.
+Just translate [strings.xml](app/src/main/res/values/strings.xml) and make a pull request.
