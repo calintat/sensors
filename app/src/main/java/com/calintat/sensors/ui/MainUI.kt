@@ -99,7 +99,7 @@ object MainUI : AnkoComponent<MainActivity> {
 
                 menu.itemsSequence().filter { it.groupId == R.id.sensors }.forEach {
 
-                    it.isEnabled = Item.get(it.itemId)?.isAvailable(ctx) ?: false
+                    it.isVisible = Item.get(it.itemId)?.isAvailable(ctx) ?: false
                 }
 
                 setNavigationItemSelectedListener { owner.navigationItemSelected(it); true }
