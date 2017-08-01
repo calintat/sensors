@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.pm.ShortcutInfo
 import android.graphics.drawable.Icon
 import android.hardware.Sensor
-import android.hardware.SensorEventListener
 import android.support.annotation.DrawableRes
 import android.support.annotation.IdRes
 import android.support.annotation.RequiresApi
@@ -166,22 +165,4 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
      * Returns whether this item has any available sensors in a given context.
      */
     fun isAvailable(context: Context) = getDefaultSensor(context) != null
-
-    /**
-     * Unregisters a listener for the default sensor of this item.
-     */
-    fun unregisterListener(context: Context, listener: SensorEventListener) {
-
-        context.sensorManager.unregisterListener(listener, getDefaultSensor(context))
-    }
-
-    /**
-     * Registers a listener for the default sensor at a given sampling period.
-     *
-     * @param frequency The rate in microseconds that sensor events will be delivered at.
-     */
-    fun registerListener(context: Context, listener: SensorEventListener, frequency: Int) {
-
-        context.sensorManager.registerListener(listener, getDefaultSensor(context), frequency)
-    }
 }
