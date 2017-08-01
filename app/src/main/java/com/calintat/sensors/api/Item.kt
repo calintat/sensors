@@ -148,13 +148,9 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
         val intent = ctx.intentFor<MainActivity>(SHORTCUT_ID to shortcutId)
 
         return ShortcutInfo.Builder(ctx, shortcutId)
-
                 .setRank(ordinal)
-
                 .setShortLabel(ctx.getString(label))
-
                 .setIntent(intent.setAction(Intent.ACTION_MAIN))
-
                 .setIcon(Icon.createWithResource(ctx, shortcutIcon)).build()
     }
 
