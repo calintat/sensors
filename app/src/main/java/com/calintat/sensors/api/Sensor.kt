@@ -69,7 +69,7 @@ class Sensor : AnkoFragment<Sensor>(), SensorEventListener {
 
                 timestamp = currentTime; values = it.copyOf(item.dimension)
 
-                it.zip(textViews) { v, textView -> textView.text = v.toString() }
+                it.zip(textViews) { v, textView -> textView.text = "${v.toDouble()}" }
             }
         }
     }
