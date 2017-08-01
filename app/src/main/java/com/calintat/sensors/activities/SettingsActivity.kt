@@ -6,7 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceGroup
 import android.support.v7.app.AppCompatActivity
-import com.calintat.alps.*
+import com.calintat.alps.dsl.*
 import com.calintat.sensors.R
 import com.calintat.sensors.api.Item
 import com.calintat.sensors.ui.SettingsUI
