@@ -50,7 +50,7 @@ class Sensor : AnkoFragment<Sensor>(), SensorEventListener {
 
         super.onResume()
 
-        item.registerListener(activity, this, SensorManager.SENSOR_DELAY_FASTEST)
+        item.registerListener(activity, this, SensorManager.SENSOR_DELAY_UI)
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
