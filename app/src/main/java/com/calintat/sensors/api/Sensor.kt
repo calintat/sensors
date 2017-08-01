@@ -6,6 +6,8 @@ import android.hardware.SensorManager
 import android.support.annotation.IdRes
 import android.widget.TextView
 import com.calintat.sensors.utils.AnkoFragment
+import org.jetbrains.anko.ctx
+import org.jetbrains.anko.sensorManager
 import org.jetbrains.anko.withArguments
 
 /**
@@ -43,27 +45,29 @@ class Sensor : AnkoFragment<Sensor>(), SensorEventListener {
 
         super.onPause()
 
-        item.unregisterListener(activity, this)
+        ctx.sensorManager.unregisterListener(this)
     }
 
     override fun onResume() {
 
         super.onResume()
 
-        item.registerListener(activity, this, SensorManager.SENSOR_DELAY_UI)
+        val sensor = item.getDefaultSensor(ctx)
+
+        ctx.sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_UI, 750)
+    }
+
+    override fun onAccuracyChanged(sensor: android.hardware.Sensor?, accuracy: Int) {
+
+        /* do nothing */
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
 
-        event?.values?.let {
+        values = event?.values?.copyOf(item.dimension)
 
-            values = it.copyOf(item.dimension)
+        val format = if (item.dimension == 1) "%.1f" else "%.2f"
 
-            val format = if (item.dimension == 1) "%.1f" else "%.2f"
-
-            it.zip(textViews) { value, t -> t.text = String.format(format, value) }
-        }
+        values?.zip(textViews) { value, textView -> textView.text = String.format(format, value) }
     }
-
-    override fun onAccuracyChanged(sensor: android.hardware.Sensor?, accuracy: Int) {}
 }
