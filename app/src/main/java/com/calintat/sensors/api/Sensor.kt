@@ -8,6 +8,8 @@ import android.widget.TextView
 import com.calintat.alps.longPref
 import com.calintat.sensors.utils.AnkoFragment
 import org.jetbrains.anko.withArguments
+import java.text.DecimalFormat
+import java.util.*
 
 /**
  * Fragment that displays the values of a given sensor.
@@ -69,7 +71,9 @@ class Sensor : AnkoFragment<Sensor>(), SensorEventListener {
 
                 timestamp = currentTime; values = it.copyOf(item.dimension)
 
-                it.zip(textViews) { v, textView -> textView.text = "${v.toDouble()}" }
+                val f = if (item.dimension == 1) "%.1f" else "%.2f"
+
+                it.zip(textViews) { value, t -> t.text = String.format(f, value) }
             }
         }
     }
