@@ -5,11 +5,8 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.support.annotation.IdRes
 import android.widget.TextView
-import com.calintat.alps.longPref
 import com.calintat.sensors.utils.AnkoFragment
 import org.jetbrains.anko.withArguments
-import java.text.DecimalFormat
-import java.util.*
 
 /**
  * Fragment that displays the values of a given sensor.
@@ -26,11 +23,6 @@ class Sensor : AnkoFragment<Sensor>(), SensorEventListener {
     override val me get() = this
 
     override val ui get() = if (item.dimension == 1) Sensor1D else Sensor3D
-
-    /**
-     * Time in milliseconds when [values] was last updated.
-     */
-    var timestamp = 0L
 
     /**
      * Current sensor values that are being displayed.
@@ -65,16 +57,11 @@ class Sensor : AnkoFragment<Sensor>(), SensorEventListener {
 
         event?.values?.let {
 
-            val currentTime = System.currentTimeMillis()
+            values = it.copyOf(item.dimension)
 
-            if (currentTime - timestamp >= 750) {
+            val format = if (item.dimension == 1) "%.1f" else "%.2f"
 
-                timestamp = currentTime; values = it.copyOf(item.dimension)
-
-                val f = if (item.dimension == 1) "%.1f" else "%.2f"
-
-                it.zip(textViews) { value, t -> t.text = String.format(f, value) }
-            }
+            it.zip(textViews) { value, t -> t.text = String.format(format, value) }
         }
     }
 
