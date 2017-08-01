@@ -142,27 +142,24 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
     /**
      * Builds a [ShortcutInfo] object. This is used to set dynamic shortcuts.
      */
-    @RequiresApi(25) fun buildShortcut(context: Context): ShortcutInfo {
+    @RequiresApi(25) fun buildShortcut(ctx: Context): ShortcutInfo {
 
-        val intent = context.intentFor<MainActivity>(SHORTCUT_ID to shortcutId)
+        val intent = ctx.intentFor<MainActivity>(SHORTCUT_ID to shortcutId)
 
-        return ShortcutInfo.Builder(context, shortcutId)
+        return ShortcutInfo.Builder(ctx, shortcutId)
                 .setRank(ordinal)
-                .setShortLabel(context.getString(label))
+                .setShortLabel(ctx.getString(label))
                 .setIntent(intent.setAction(Intent.ACTION_MAIN))
-                .setIcon(Icon.createWithResource(context, shortcutIcon)).build()
-    }
-
-    /**
-     * Returns the default sensor of this item in a given context or null if none exists.
-     */
-    fun getDefaultSensor(context: Context): Sensor? {
-
-        return context.sensorManager.getDefaultSensor(sensor)
+                .setIcon(Icon.createWithResource(ctx, shortcutIcon)).build()
     }
 
     /**
      * Returns whether this item has any available sensors in a given context.
      */
-    fun isAvailable(context: Context) = getDefaultSensor(context) != null
+    fun isAvailable(ctx: Context) = getDefaultSensor(ctx) != null
+
+    /**
+     * Returns the default sensor of this item in a given context or null if none exists.
+     */
+    fun getDefaultSensor(ctx: Context): Sensor? = ctx.sensorManager.getDefaultSensor(sensor)
 }
