@@ -1,12 +1,16 @@
 package com.calintat.sensors.activities
 
+import android.content.Context
+import android.content.pm.ShortcutManager
+import android.os.Build
 import android.os.Bundle
+import android.preference.PreferenceGroup
 import android.support.v7.app.AppCompatActivity
 import com.calintat.alps.*
 import com.calintat.sensors.R
 import com.calintat.sensors.api.Item
 import com.calintat.sensors.ui.SettingsUI
-import com.calintat.sensors.utils.ShortcutsUtils.shortcuts
+import org.jetbrains.anko.ctx
 import org.jetbrains.anko.setContentView
 import org.jetbrains.anko.toast
 
@@ -16,74 +20,91 @@ class SettingsActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        SettingsUI().setContentView(this)
+        SettingsUI.setContentView(this)
 
         populateWithPreferences(R.id.container) {
 
-            listPreference("pref_theme") {
+            themePreference()
 
-                titleResource = R.string.pref_theme
+            shortcutsPreference()
 
-                summary = "%s"
+            aboutPreferenceCategory()
+        }
+    }
 
-                entries = arrayOf("Auto", "Light", "Dark")
+    internal fun PreferenceGroup.themePreference() {
 
-                entryValues = arrayOf("0", "1", "2")
+        listPreference(key = "pref_theme") {
 
-                onChange { toast(R.string.msg_app_restart_required); true }
-            }
+            titleResource = R.string.pref_theme
 
-            multiSelectListPreference {
+            summary = "%s"
 
-                titleResource = R.string.pref_shortcuts
+            entries = arrayOf("Auto", "Dark", "Light")
 
-                values = shortcuts.toSet()
+            entryValues = arrayOf("0", "1", "2")
 
-                entries = Item.values().map { resources.getString(it.label) }.toTypedArray()
+            onChange { toast(R.string.msg_app_restart_required); true }
+        }
+    }
 
-                entryValues = Item.values().map { it.shortcutId }.toTypedArray()
+    internal fun PreferenceGroup.shortcutsPreference() {
 
-                onChange { onShortcutsChanged(it) }
-            }
+        if (Build.VERSION.SDK_INT < 25) return
 
-            preferenceCategory {
+        val shortcutManager = getSystemService(Context.SHORTCUT_SERVICE) as ShortcutManager
 
-                setTitle(R.string.pref_about)
+        val items = Item.values().filter { it.isAvailable(ctx) }
 
-                preference {
+        val names = items.map { getString(it.label) }
 
-                    titleResource = R.string.pref_version
+        val shortcutIds = items.map { it.shortcutId }
 
-                    summaryResource = R.string.app_version
+        multiSelectListPreference {
 
-                    setUrl("market://details?id=com.calintat.sensors")
+            titleResource = R.string.pref_shortcuts
+
+            values = shortcutManager.dynamicShortcuts.map { it.id }.toSet()
+
+            entries = names.toTypedArray()
+
+            entryValues = shortcutIds.toTypedArray()
+
+            onChange {
+
+                if (it.size <= 4) {
+
+                    shortcutManager.dynamicShortcuts = it.mapNotNull { Item.get(it)?.buildShortcut(ctx) }
+
+                    true
                 }
+                else {
 
-                preference {
+                    toast(R.string.err_shortcuts)
 
-                    titleResource = R.string.pref_developer
-
-                    summaryResource = R.string.app_developer
-
-                    setUrl("https://play.google.com/store/apps/dev?id=5526451977947367946")
+                    false
                 }
             }
         }
     }
 
-    internal fun onShortcutsChanged(new: Set<String>): Boolean {
+    internal fun PreferenceGroup.aboutPreferenceCategory() {
 
-        if (new.size <= 4) {
+        preferenceCategory {
 
-            shortcuts = new.toList()
+            titleResource = R.string.pref_about
 
-            return true
-        }
-        else {
+            preference {
+                titleResource = R.string.pref_version
+                summaryResource = R.string.app_version
+                url = "market://details?id=com.calintat.sensors"
+            }
 
-            toast(R.string.err_shortcuts)
-
-            return false
+            preference {
+                titleResource = R.string.pref_developer
+                summaryResource = R.string.app_developer
+                url = "https://play.google.com/store/apps/dev?id=5526451977947367946"
+            }
         }
     }
 }
