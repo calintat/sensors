@@ -38,7 +38,7 @@ dependencies {
 
     compile "com.github.calintat.alps:alps-dsl:2.0.2"
 
-    compile "com.github.calintat:colorful:1.0.1"
+    compile "com.github.calintat:chromatic:1.0.1"
 
     compile "org.jetbrains.anko:anko-sdk21:$ankoVersion"
     compile "org.jetbrains.anko:anko-sdk21-listeners:$ankoVersion"
