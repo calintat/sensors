@@ -142,14 +142,19 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
     /**
      * Builds a [ShortcutInfo] object. This is used to set dynamic shortcuts.
      */
-    @RequiresApi(25) fun buildShortcut(ctx: Context): ShortcutInfo {
+    @RequiresApi(25)
+    fun buildShortcut(ctx: Context): ShortcutInfo {
 
         val intent = ctx.intentFor<MainActivity>(SHORTCUT_ID to shortcutId)
 
         return ShortcutInfo.Builder(ctx, shortcutId)
+
                 .setRank(ordinal)
+
                 .setShortLabel(ctx.getString(label))
+
                 .setIntent(intent.setAction(Intent.ACTION_MAIN))
+
                 .setIcon(Icon.createWithResource(ctx, shortcutIcon)).build()
     }
 
