@@ -33,7 +33,7 @@ object SettingsUI : AnkoComponent<SettingsActivity> {
 
                         titleResource = R.string.navigation_settings
 
-                        titleTextColorResource = R.color.white
+                        titleTextColorResource = android.R.color.white
                     }
                 }
 
