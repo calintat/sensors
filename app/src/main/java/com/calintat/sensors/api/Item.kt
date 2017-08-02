@@ -138,6 +138,8 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
 
         fun firstAvailableItem(ctx: Context) = values().firstOrNull { it.isAvailable(ctx) }
 
+        fun availableItems(ctx: Context) = values().filter { it.isAvailable(ctx) }
+
         @TargetApi(25) fun buildShortcut(ctx: Context, shortcutId: String): ShortcutInfo? {
 
             return get(shortcutId)?.run {
