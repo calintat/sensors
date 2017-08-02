@@ -10,9 +10,13 @@ class Adapter : RecyclerView.Adapter<ViewHolder>() {
 
     val items = mutableListOf<Logger.Snapshot>()
 
+    var recyclerView: RecyclerView? = null
+
     fun add(item: Logger.Snapshot) {
 
         items.add(item); notifyItemInserted(itemCount - 1)
+
+        recyclerView?.layoutManager?.scrollToPosition(itemCount - 1)
     }
 
     override fun getItemCount() = items.size
@@ -20,6 +24,11 @@ class Adapter : RecyclerView.Adapter<ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         holder.bindItem(items[position])
+    }
+
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView?) {
+
+        this.recyclerView = recyclerView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
