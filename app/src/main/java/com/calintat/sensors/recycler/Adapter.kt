@@ -12,9 +12,7 @@ class Adapter : RecyclerView.Adapter<ViewHolder>() {
 
     fun add(item: Logger.Snapshot) {
 
-        items.add(0, item)
-
-        notifyItemInserted(0)
+        items.add(item); notifyItemInserted(itemCount - 1)
     }
 
     override fun getItemCount() = items.size
