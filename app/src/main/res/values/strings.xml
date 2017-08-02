@@ -34,7 +34,7 @@
 
     <!--MESSAGES-->
 
-    <string name="msg_app_restart_required">App restart required</string>
+    <string name="msg_app_restart_required">App restart may be required</string>
 
     <!--NAVIGATION-->
 
