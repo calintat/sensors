@@ -1,5 +1,6 @@
 package com.calintat.sensors.api
 
+import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ShortcutInfo
@@ -7,7 +8,6 @@ import android.graphics.drawable.Icon
 import android.hardware.Sensor
 import android.support.annotation.DrawableRes
 import android.support.annotation.IdRes
-import android.support.annotation.RequiresApi
 import android.support.annotation.StringRes
 import com.calintat.sensors.R
 import com.calintat.sensors.activities.MainActivity
@@ -137,30 +137,29 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
         fun get(shortcutId: String?) = values().firstOrNull { it.shortcutId == shortcutId }
 
         fun firstAvailableItem(ctx: Context) = values().firstOrNull { it.isAvailable(ctx) }
-    }
 
-    /**
-     * Builds a [ShortcutInfo] object. This is used to set dynamic shortcuts.
-     */
-    @RequiresApi(25)
-    fun buildShortcut(ctx: Context): ShortcutInfo {
+        @TargetApi(25) fun buildShortcut(ctx: Context, shortcutId: String): ShortcutInfo? {
 
-        val intent = ctx.intentFor<MainActivity>(SHORTCUT_ID to shortcutId)
+            return get(shortcutId)?.run {
 
-        return ShortcutInfo.Builder(ctx, shortcutId)
-                .setRank(ordinal)
-                .setShortLabel(ctx.getString(label))
-                .setIntent(intent.setAction(Intent.ACTION_MAIN))
-                .setIcon(Icon.createWithResource(ctx, shortcutIcon)).build()
+                val intent = ctx.intentFor<MainActivity>(SHORTCUT_ID to shortcutId)
+
+                ShortcutInfo.Builder(ctx, shortcutId)
+                        .setRank(ordinal)
+                        .setShortLabel(ctx.getString(label))
+                        .setIntent(intent.setAction(Intent.ACTION_MAIN))
+                        .setIcon(Icon.createWithResource(ctx, shortcutIcon)).build()
+            }
+        }
     }
 
     /**
      * Returns whether this item has any available sensors in a given context.
      */
-    fun isAvailable(ctx: Context) = getDefaultSensor(ctx) != null
+    fun isAvailable(context: Context) = getDefaultSensor(context) != null
 
     /**
      * Returns the default sensor of this item in a given context or null if none exists.
      */
-    fun getDefaultSensor(ctx: Context): Sensor? = ctx.sensorManager.getDefaultSensor(sensor)
+    fun getDefaultSensor(context: Context): Sensor? = context.sensorManager.getDefaultSensor(sensor)
 }
