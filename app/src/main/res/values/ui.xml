@@ -18,11 +18,11 @@
 
     </style>
 
-    <color name="primary">@color/red_500</color>
+    <color name="primary">#F44336</color>
 
-    <color name="primary_dark">@color/red_700</color>
+    <color name="primary_dark">#D32F2F</color>
 
-    <color name="accent">@color/blue_A200</color>
+    <color name="accent">#448AFF</color>
 
     <dimen name="app_bar_height">168dp</dimen>
 
