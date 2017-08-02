@@ -36,8 +36,6 @@ dependencies {
 
     compile "com.github.calintat.alps:alps-core:2.0.3"
 
-    compile "com.github.calintat.alps:alps-dsl:2.0.3"
-
     compile "com.github.calintat:chromatic:1.0.1"
 
     compile "org.jetbrains.anko:anko-sdk21:$ankoVersion"
