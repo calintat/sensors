@@ -45,6 +45,8 @@ object LoggerUI : AnkoComponent<Logger> {
 
                 layoutManager = LinearLayoutManager(ctx)
 
+                bottomPadding = dip(16); clipToPadding = false
+
             }.lparams(width = matchParent, height = 0, weight = 1f)
         }
     }
