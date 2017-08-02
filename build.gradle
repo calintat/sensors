@@ -2,11 +2,11 @@ buildscript {
 
     ext {
 
-        ankoVersion = "0.10.1"
+        anko_version = "0.10.1"
 
-        kotlinVersion = "1.1.3-2"
+        kotlin_version = "1.1.3-2"
 
-        supportLibraryVersion = "26.0.0"
+        support_library_version = "26.0.0"
     }
 
     repositories {
@@ -18,7 +18,7 @@ buildscript {
 
         classpath "com.android.tools.build:gradle:2.3.3"
 
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 

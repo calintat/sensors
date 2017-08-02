@@ -24,33 +24,29 @@ android {
 
 dependencies {
 
-    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+    compile "com.android.support:customtabs:$support_library_version"
 
-    compile "com.android.support:customtabs:$supportLibraryVersion"
+    compile "com.android.support:appcompat-v7:$support_library_version"
 
-    compile "com.android.support:design:$supportLibraryVersion"
+    compile "com.android.support:design:$support_library_version"
 
-    compile "com.android.support:cardview-v7:$supportLibraryVersion"
+    compile "com.android.support:cardview-v7:$support_library_version"
 
-    compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
+    compile "com.android.support:recyclerview-v7:$support_library_version"
 
     compile "com.github.calintat.alps:alps-core:2.0.3"
 
     compile "com.github.calintat:chromatic:1.0.1"
 
-    compile "org.jetbrains.anko:anko-sdk21:$ankoVersion"
-    compile "org.jetbrains.anko:anko-sdk21-listeners:$ankoVersion"
+    compile "org.jetbrains.anko:anko-sdk21:$anko_version"
 
-    compile "org.jetbrains.anko:anko-appcompat-v7:$ankoVersion"
-    compile "org.jetbrains.anko:anko-appcompat-v7-listeners:$ankoVersion"
+    compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
 
-    compile "org.jetbrains.anko:anko-design:$ankoVersion"
-    compile "org.jetbrains.anko:anko-design-listeners:$ankoVersion"
+    compile "org.jetbrains.anko:anko-design:$anko_version"
 
-    compile "org.jetbrains.anko:anko-cardview-v7:$ankoVersion"
+    compile "org.jetbrains.anko:anko-cardview-v7:$anko_version"
 
-    compile "org.jetbrains.anko:anko-recyclerview-v7:$ankoVersion"
-    compile "org.jetbrains.anko:anko-recyclerview-v7-listeners:$ankoVersion"
+    compile "org.jetbrains.anko:anko-recyclerview-v7:$anko_version"
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
