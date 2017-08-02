@@ -4,19 +4,6 @@ To install on an Android device, go to the [Play Store](https://play.google.com/
 
 I would greatly appreciate it if you could rate the app.
 
-Features
---------
-
-Dark theme support for OLED screens
-
-Simple and colourful design
-
-App shortcuts for Android Nougat
-
-Remembers the last selected item
-
-Completely free with no ads
-
 Suggestions
 -----------
 
