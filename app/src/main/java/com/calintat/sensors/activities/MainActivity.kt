@@ -123,7 +123,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        val defaultId = getInt(KEY_ID, defaultItem.id)
+        val defaultId = getInt(KEY_ID).takeIf { Item.isIdSafe(it) } ?: defaultItem.id
 
         if (savedInstanceState == null) { /* opened from launcher or app shortcut */
 

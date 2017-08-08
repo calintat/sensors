@@ -130,6 +130,8 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
 
         private const val SHORTCUT_ID = "com.calintat.sensors.api.SHORTCUT_ID"
 
+        fun isIdSafe(id: Int) = get(id) != null
+
         fun get(id: Int?) = values().firstOrNull { it.id == id }
 
         fun get(intent: Intent) = intent.getStringExtra(SHORTCUT_ID)?.let { get(it) }
