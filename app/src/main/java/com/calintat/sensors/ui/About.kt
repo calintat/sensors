@@ -31,7 +31,7 @@ object About : AnkoComponent<Item> {
         }
     }
 
-    internal fun _LinearLayout.newEntry(title: Int, content: String) = verticalLayout {
+    private fun _LinearLayout.newEntry(title: Int, content: String) = verticalLayout {
 
         padding = dip(8)
 

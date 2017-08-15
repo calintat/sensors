@@ -10,7 +10,7 @@ class Adapter : RecyclerView.Adapter<ViewHolder>() {
 
     val items = mutableListOf<Logger.Snapshot>()
 
-    var recyclerView: RecyclerView? = null
+    private var recyclerView: RecyclerView? = null
 
     fun add(item: Logger.Snapshot) {
 

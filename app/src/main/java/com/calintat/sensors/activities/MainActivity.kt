@@ -23,7 +23,7 @@ import org.jetbrains.anko.*
 
 class MainActivity : AppCompatActivity() {
 
-    internal val KEY_ID = "com.calintat.sensors.KEY_ID"
+    private val KEY_ID = "com.calintat.sensors.KEY_ID"
 
     internal val ui by lazy { MainUI }
 
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             sensor = Sensor.build(value)
         }
 
-    internal var sensor: Sensor? = null
+    private var sensor: Sensor? = null
 
         set(value) {
 
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.fragment_sensor, value)
         }
 
-    internal var logger: Logger? = null
+    private var logger: Logger? = null
 
         set(value) {
 
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.fragment_logger, value)
         }
 
-    internal var billingHelper: InAppBillingHelper? = null
+    private var billingHelper: InAppBillingHelper? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -99,12 +99,12 @@ class MainActivity : AppCompatActivity() {
         super.onSaveInstanceState(outState)
     }
 
-    internal fun setTheme() {
+    private fun setTheme() {
 
         AppCompatDelegate.setDefaultNightMode(getInt("pref_theme"))
     }
 
-    internal fun init(savedInstanceState: Bundle?) {
+    private fun init(savedInstanceState: Bundle?) {
 
         val defaultItem = Item.firstAvailableItem(this)
 
@@ -126,14 +126,7 @@ class MainActivity : AppCompatActivity() {
 
         val defaultId = getInt(KEY_ID).takeIf { Item.isIdSafe(it) } ?: defaultItem.id
 
-        if (savedInstanceState == null) { /* opened from launcher or app shortcut */
-
-            id = Item.get(intent)?.id ?: defaultId
-        }
-        else { /* orientation change, activity resumed, etc */
-
-            id = savedInstanceState.getInt(KEY_ID, defaultId)
-        }
+        id = savedInstanceState?.getInt(KEY_ID, defaultId) ?: (Item.get(intent)?.id ?: defaultId)
     }
 
     internal fun onMenuItemClick(item: MenuItem) {
@@ -167,12 +160,12 @@ class MainActivity : AppCompatActivity() {
         sensor?.values?.let { logger?.add(it); refreshToolbarMenu() }
     }
 
-    internal fun actionClear() {
+    private fun actionClear() {
 
         logger = Logger() // replace with new empty logger
     }
 
-    internal fun actionAbout() {
+    private fun actionAbout() {
 
         Item.get(id)?.let {
 
@@ -180,7 +173,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    internal fun reportIssue() {
+    private fun reportIssue() {
 
         val builder = CustomTabsIntent.Builder()
 
@@ -189,7 +182,7 @@ class MainActivity : AppCompatActivity() {
         builder.build().launchUrl(this, Uri.parse("https://github.com/calintat/sensors/issues"))
     }
 
-    internal fun supportDevelopment() {
+    private fun supportDevelopment() {
 
         val title = getString(R.string.navigation_donation)
 
@@ -198,12 +191,12 @@ class MainActivity : AppCompatActivity() {
         selector(title, items) { _, index -> billingHelper?.makeDonation("donation$index") }
     }
 
-    internal fun refreshToolbarMenu() {
+    private fun refreshToolbarMenu() {
 
-        ui.toolbar.menu.findItem(R.id.action_clear).isVisible = logger?.isEmpty?.not() ?: false
+        ui.toolbar.menu.findItem(R.id.action_clear).isVisible = logger?.isEmpty?.not() == true
     }
 
-    internal fun replace(@IdRes containerViewId: Int, fragment: Fragment?) {
+    private fun replace(@IdRes containerViewId: Int, fragment: Fragment?) {
 
         fragment?.let { fragmentManager.beginTransaction().replace(containerViewId, it).commit() }
     }

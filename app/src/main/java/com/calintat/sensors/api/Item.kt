@@ -136,7 +136,7 @@ enum class Item(val sensor: Int, @StringRes val unit: Int, val dimension: Int, @
 
         fun get(intent: Intent) = intent.getStringExtra(SHORTCUT_ID)?.let { get(it) }
 
-        fun get(shortcutId: String?) = values().firstOrNull { it.shortcutId == shortcutId }
+        private fun get(shortcutId: String?) = values().firstOrNull { it.shortcutId == shortcutId }
 
         fun firstAvailableItem(ctx: Context) = values().firstOrNull { it.isAvailable(ctx) }
 

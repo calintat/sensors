@@ -50,7 +50,7 @@ class SettingsFragment : PreferenceFragment() {
         }
     }
 
-    @RequiresApi(25) fun updateShortcuts(shortcutIds: Set<String>) {
+    @RequiresApi(25) private fun updateShortcuts(shortcutIds: Set<String>) {
 
         val shortcutManager = ctx.getSystemService(Context.SHORTCUT_SERVICE) as ShortcutManager
 

@@ -26,7 +26,7 @@ object ListItem : AnkoComponent<ViewGroup> {
         }
     }
 
-    internal fun _LinearLayout.createTextView(@IdRes id: Int): TextView {
+    private fun _LinearLayout.createTextView(@IdRes id: Int): TextView {
 
         return textView {
 

@@ -36,7 +36,7 @@ object Sensor3D : AnkoComponent<Sensor> {
         }
     }
 
-    internal fun ViewManager.createField(@StringRes top: Int, @StringRes bottom: Int, init: TextView.() -> Unit) {
+    private fun ViewManager.createField(@StringRes top: Int, @StringRes bottom: Int, init: TextView.() -> Unit) {
 
         verticalLayout {
 
