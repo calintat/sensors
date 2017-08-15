@@ -26,6 +26,8 @@
 
     <string name="action_about">About sensor</string>
 
+    <string name="action_restart">Restart</string>
+
     <!--ERRORS-->
 
     <string name="err_shortcuts">Maximum 4 shortcuts</string>
