@@ -78,25 +78,17 @@
 
     <!--PREFERENCES-->
 
-    <string name="pref_delay">Delay</string>
-
     <string name="pref_theme">Theme</string>
 
     <string name="pref_shortcuts">Shortcuts</string>
-
-    <string name="pref_about">About</string>
 
     <string name="pref_version">Version</string>
 
     <string name="pref_developer">Developer</string>
 
-    <!--PREFERENCES VALUES-->
+    <string-array name="pref_theme"><item>Auto</item><item>Day</item><item>Night</item></string-array>
 
-    <string-array name="themes">
-        <item>Auto</item><item>Day</item><item>Night</item></string-array>
-
-    <string-array name="themes_values">
-        <item>0</item><item>1</item><item>2</item></string-array>
+    <string-array translatable="false" name="pref_theme_values"><item>0</item><item>1</item><item>2</item></string-array>
 
     <!--MEASUREMENT UNITS-->
 
