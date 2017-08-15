@@ -4,6 +4,9 @@
     tools:ignore="GoogleAppIndexingWarning"
     package="com.calintat.sensors" >
 
+    <uses-permission
+        android:name="com.android.vending.BILLING" />
+
     <application
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
