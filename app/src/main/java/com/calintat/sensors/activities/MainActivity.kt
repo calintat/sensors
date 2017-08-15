@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatDelegate
 import android.view.Gravity
 import android.view.MenuItem
 import com.calintat.alps.getInt
-import com.calintat.alps.getString
 import com.calintat.alps.putInt
 import com.calintat.sensors.R
 import com.calintat.sensors.api.Item
@@ -19,10 +18,8 @@ import com.calintat.sensors.api.Logger
 import com.calintat.sensors.api.Sensor
 import com.calintat.sensors.ui.About
 import com.calintat.sensors.ui.MainUI
-import org.jetbrains.anko.AnkoContext
-import org.jetbrains.anko.alert
-import org.jetbrains.anko.setContentView
-import org.jetbrains.anko.startActivity
+import com.calintat.sensors.utils.InAppBillingHelper
+import org.jetbrains.anko.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -63,6 +60,8 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.fragment_logger, value)
         }
 
+    internal var billingHelper: InAppBillingHelper? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -72,6 +71,8 @@ class MainActivity : AppCompatActivity() {
         ui.setContentView(this)
 
         init(savedInstanceState)
+
+        billingHelper = InAppBillingHelper(this)
     }
 
     override fun onBackPressed() {
@@ -82,6 +83,13 @@ class MainActivity : AppCompatActivity() {
 
             else -> super.onBackPressed()
         }
+    }
+
+    override fun onDestroy() {
+
+        super.onDestroy()
+
+        billingHelper?.destroy()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -148,6 +156,8 @@ class MainActivity : AppCompatActivity() {
 
             R.id.navigation_feedback -> reportIssue()
 
+            R.id.navigation_donation -> supportDevelopment()
+
             else -> id = item.itemId
         }
     }
@@ -177,6 +187,15 @@ class MainActivity : AppCompatActivity() {
         builder.setToolbarColor(ContextCompat.getColor(this, R.color.primary))
 
         builder.build().launchUrl(this, Uri.parse("https://github.com/calintat/sensors/issues"))
+    }
+
+    internal fun supportDevelopment() {
+
+        val title = getString(R.string.navigation_donation)
+
+        val items = listOf("£0.99", "£1.99", "£2.99", "£3.99", "£4.99", "£9.99")
+
+        selector(title, items) { _, index -> billingHelper?.makeDonation("donation$index") }
     }
 
     internal fun refreshToolbarMenu() {
