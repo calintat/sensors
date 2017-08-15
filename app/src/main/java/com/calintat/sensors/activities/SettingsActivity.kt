@@ -14,6 +14,6 @@ class SettingsActivity : AppCompatActivity() {
 
         SettingsUI.setContentView(this)
 
-        fragmentManager.beginTransaction().add(R.id.container, SettingsFragment()).commit()
+        fragmentManager.beginTransaction().replace(R.id.container, SettingsFragment()).commit()
     }
 }
