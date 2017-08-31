@@ -7,7 +7,7 @@ import com.calintat.sensors.R
 import com.calintat.sensors.api.Logger
 import org.jetbrains.anko.find
 
-class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class LoggerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private val time = itemView.find<TextView>(R.id.logger_list_item_time)
 

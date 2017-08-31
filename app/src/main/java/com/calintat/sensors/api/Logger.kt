@@ -1,7 +1,7 @@
 package com.calintat.sensors.api
 
 import android.view.View
-import com.calintat.sensors.recycler.Adapter
+import com.calintat.sensors.recycler.LoggerAdapter
 import com.calintat.sensors.utils.AnkoFragment
 
 /**
@@ -24,7 +24,7 @@ class Logger : AnkoFragment<Logger>() {
     /**
      * Adapter for the recycler view.
      */
-    val adapter = Adapter()
+    val adapter = LoggerAdapter()
 
     /**
      * Returns whether the logger is empty.

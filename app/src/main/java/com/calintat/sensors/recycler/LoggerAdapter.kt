@@ -6,7 +6,7 @@ import com.calintat.sensors.api.Logger
 import com.calintat.sensors.ui.ListItem
 import org.jetbrains.anko.AnkoContext
 
-class Adapter : RecyclerView.Adapter<ViewHolder>() {
+class LoggerAdapter : RecyclerView.Adapter<LoggerViewHolder>() {
 
     val items = mutableListOf<Logger.Snapshot>()
 
@@ -21,7 +21,7 @@ class Adapter : RecyclerView.Adapter<ViewHolder>() {
 
     override fun getItemCount() = items.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: LoggerViewHolder, position: Int) {
 
         holder.bindItem(items[position])
     }
@@ -31,8 +31,8 @@ class Adapter : RecyclerView.Adapter<ViewHolder>() {
         this.recyclerView = recyclerView
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LoggerViewHolder {
 
-        return ViewHolder(ListItem.createView(AnkoContext.create(parent.context, parent)))
+        return LoggerViewHolder(ListItem.createView(AnkoContext.create(parent.context, parent)))
     }
 }
