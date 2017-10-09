@@ -24,7 +24,7 @@ android {
 
 dependencies {
 
-    compile "com.android.billingclient:billing:dp-1"
+    compile "com.android.billingclient:billing:1.0"
 
     compile "com.android.support:customtabs:26.0.1"
 
