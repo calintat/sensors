@@ -16,8 +16,4 @@ object AnkoProperties {
     var Toolbar.overflowIconResource: Int
         @Deprecated(AnkoInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = AnkoInternals.noGetter()
         set(value) { overflowIcon = AppCompatResources.getDrawable(context, value) }
-
-    var TextView.textAppearance: Int
-        @Deprecated(AnkoInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = AnkoInternals.noGetter()
-        @Suppress("DEPRECATION") set(value) = if (Build.VERSION.SDK_INT >= 23) setTextAppearance(value) else setTextAppearance(context, value)
 }

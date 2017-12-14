@@ -2,7 +2,6 @@ package com.calintat.sensors.api
 
 import android.view.Gravity
 import com.calintat.sensors.R
-import com.calintat.sensors.utils.AnkoProperties.textAppearance
 import org.jetbrains.anko.*
 
 /**

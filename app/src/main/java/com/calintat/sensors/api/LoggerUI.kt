@@ -5,7 +5,6 @@ import android.view.Gravity
 import android.view.View
 import android.widget.TextView
 import com.calintat.sensors.R
-import com.calintat.sensors.utils.AnkoProperties.textAppearance
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 
